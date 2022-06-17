@@ -16,4 +16,4 @@ const CustomButton: React.FC<ICustomButton> = ({onClick,text, color, className})
     );
 };
 
-export default CustomButton;
+export default React.memo(CustomButton);

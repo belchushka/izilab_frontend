@@ -1,0 +1,48 @@
+@import "../../styles/mixin";
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &_icon {
+    position: relative;
+    display:inline-block;
+    &_text {
+      font-size: 120px;
+      font-family: 'Roboto',Arial,sans-serif;
+      font-weight: 700;
+
+      @include adaptive("md"){
+        font-size: 90px;
+      }
+      @include adaptive("xxsm"){
+        font-size: 60px;
+      }
+    }
+
+    &_image {
+      position: absolute;
+      bottom: 5px;
+      height: 75%;
+    }
+  }
+
+
+  &_subtitle {
+    font-size: 20px;
+    font-family: 'Roboto',Arial,sans-serif;
+    font-weight: 400;
+    text-align: center;
+    margin-top:10px ;
+    @include adaptive("md"){
+      font-size: 16px;
+    }
+    @include adaptive("sm"){
+      font-size: 15px;
+    }
+    @include adaptive("xxsm"){
+      font-size: 10px;
+    }
+
+  }
+}

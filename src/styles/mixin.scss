@@ -8,19 +8,19 @@
       @content;
     }
   } @else if $point == md {
-    @media only screen and (max-width: 1279px) {
+    @media only screen and (max-width: 1199px) {
       @content;
     }
   } @else if $point == sm {
-    @media only screen and (max-width: 1023px) {
+    @media only screen and (max-width: 959px) {
       @content;
     }
   } @else if $point == xsm {
-    @media only screen and (max-width: 767px) {
+    @media only screen and (max-width: 639px) {
       @content;
     }
   } @else if $point == xxsm {
-    @media only screen and (max-width: 413px) {
+    @media only screen and (max-width: 480px) {
       @content;
     }
   }

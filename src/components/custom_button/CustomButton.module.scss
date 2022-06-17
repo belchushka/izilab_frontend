@@ -1,9 +1,13 @@
 @import "../../styles/variables";
+@import "../../styles/mixin";
 
 .button {
-  padding: 10px 20px;
-  border-radius: 18px;
+  padding: 10px 16px;
+  border-radius: 20px;
   color: white;
+  font-size: 16px;
+  min-width: 163px;
+  white-space: nowrap;
   &_pink {
     background-color: $button_pink;
     transition: background-color .5s;
@@ -19,4 +23,11 @@
       background: $button_pink;
     }
   }
+
+  @include adaptive("xsm"){
+    font-size: 12px;
+    padding: 5px 7px;
+    min-width: 106px;
+  }
+
 }

@@ -1,10 +1,21 @@
 @import "../../styles/mixin";
+@import "../../styles/variables";
+
+.header_wrapper {
+  position: sticky;
+  top: 0;
+  background-color: $white;
+  width: 100%;
+}
 
 .header {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 12px 0;
+  padding-top: 12px;
+  @include adaptive("md"){
+    padding:8px 0 12px 0
+  }
   &_leftside, &_rightside {
     display: flex;
     align-items: center;
@@ -54,6 +65,7 @@
     &_text {
       line-height: 150%;
       margin-left: 15px;
+      white-space: nowrap;
     }
 
     &_content_desktop {
@@ -72,12 +84,12 @@
         margin-left: 10px;
       }
 
-      @include adaptive("sm"){
+      @include adaptive("md"){
         width: 40px;
         height: 40px;
       }
 
-      @include adaptive("xsm"){
+      @include adaptive("sm"){
         width: 27px;
         height: 27px;
         &:nth-child(2){
@@ -85,7 +97,7 @@
         }
       }
 
-      @include adaptive("xxsm"){
+      @include adaptive("xsm"){
         width: 30px;
         height: 30px;
       }

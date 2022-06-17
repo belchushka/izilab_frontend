@@ -1,0 +1,34 @@
+.container_wrapper {
+  width: 100%;
+  margin-top: 25px;
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  &_arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+      max-width: 45%;
+
+    }
+  }
+  & > div {
+    width: calc(100% / 5);
+  }
+
+  &_step:first-child img {
+    left: 28%;
+  }
+
+  &_step:nth-of-type(3) img {
+    left: 40%;
+  }
+  &_step:nth-of-type(5) img {
+    left: 60%;
+  }
+
+
+}
