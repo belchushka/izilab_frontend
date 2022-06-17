@@ -1,0 +1,17 @@
+@import "../../styles/mixin";
+
+.container {
+  max-width: 1220px;
+  width: 100%;
+  margin: auto;
+  padding: 0 25px;
+  @include adaptive("sm"){
+    padding: 0 100px;
+  }
+  @include adaptive("xsm"){
+    padding: 0 40px;
+  }
+  @include adaptive("xxsm"){
+    padding: 0 25px;
+  }
+}

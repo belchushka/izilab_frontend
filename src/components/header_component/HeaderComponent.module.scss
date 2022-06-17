@@ -1,0 +1,94 @@
+@import "../../styles/mixin";
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  &_leftside, &_rightside {
+    display: flex;
+    align-items: center;
+  };
+  &_leftside_text, &_rightside_text {
+    font-size: 15px;
+    @include adaptive("sm"){
+      font-size: 12px;
+    }
+    @include adaptive("xsm"){
+      font-size: 11px;
+    }
+    @include adaptive("xxsm"){
+      font-size: 10px;
+      line-height: 110%;
+    }
+  }
+  &_leftside {
+    &_text {
+      line-height: 125%;
+      margin-left: 45px;
+      @include adaptive("xsm"){
+        margin-left: 15px;
+      }
+    }
+    &_logo {
+      width: 204px;
+      @include adaptive("md"){
+        width: 176px;
+      }
+      @include adaptive("sm"){
+        width: 117px;
+      }
+      @include adaptive("sm"){
+        width: 117px;
+      }
+      @include adaptive("xxsm"){
+        width: 89px;
+      }
+    }
+  }
+  &_rightside {
+    &_button {
+      margin-left: 30px;
+    }
+
+    &_text {
+      line-height: 150%;
+      margin-left: 15px;
+    }
+
+    &_content_desktop {
+      display: flex;
+      align-items: center;
+      @include adaptive("sm"){
+        display: none;
+      }
+    }
+
+    &_social_button {
+      width: 50px;
+      height: 50px;
+
+      &:nth-child(2){
+        margin-left: 10px;
+      }
+
+      @include adaptive("sm"){
+        width: 40px;
+        height: 40px;
+      }
+
+      @include adaptive("xsm"){
+        width: 27px;
+        height: 27px;
+        &:nth-child(2){
+          margin-left: 5px;
+        }
+      }
+
+      @include adaptive("xxsm"){
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

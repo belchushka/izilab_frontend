@@ -3,8 +3,13 @@
 @import "variables";
 @import "fonts";
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   box-sizing: border-box;
+  scroll-behavior: smooth;
   //font-family: $gilroy;
   //color: $black;
 }
@@ -13,4 +18,12 @@ button, input{
   background: none;
   outline: none;
   border:none
+}
+
+a {
+  color: rgb(166, 166, 166);
+}
+
+button {
+  cursor: pointer;
 }

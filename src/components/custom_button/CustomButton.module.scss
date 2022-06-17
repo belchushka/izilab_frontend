@@ -1,0 +1,22 @@
+@import "../../styles/variables";
+
+.button {
+  padding: 10px 20px;
+  border-radius: 18px;
+  color: white;
+  &_pink {
+    background-color: $button_pink;
+    transition: background-color .5s;
+    &:hover {
+      background: $button_blue;
+    }
+  }
+
+  &_blue {
+    background-color: $button_blue;
+    transition: background-color .5s;
+    &:hover {
+      background: $button_pink;
+    }
+  }
+}
