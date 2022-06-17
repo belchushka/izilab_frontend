@@ -1,0 +1,16 @@
+@import "include/reset";
+@import "include/normalize";
+@import "variables";
+@import "fonts";
+
+body {
+  box-sizing: border-box;
+  //font-family: $gilroy;
+  //color: $black;
+}
+
+button, input{
+  background: none;
+  outline: none;
+  border:none
+}
