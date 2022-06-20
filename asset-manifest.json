@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/izilab_frontend/static/css/main.42ae086a.css",
+    "main.js": "/izilab_frontend/static/js/main.f829be0d.js",
+    "static/js/787.189be8b0.chunk.js": "/izilab_frontend/static/js/787.189be8b0.chunk.js",
+    "static/media/screen.png": "/izilab_frontend/static/media/screen.2d0df9cccc9eac191754.png",
+    "static/media/doctor.png": "/izilab_frontend/static/media/doctor.148697a7efc6f789f19d.png",
+    "static/media/like_doctor.jpg": "/izilab_frontend/static/media/like_doctor.b79e06d8fad854d086bb.jpg",
+    "static/media/advantage4.png": "/izilab_frontend/static/media/advantage4.f47650fb2b6904b231c8.png",
+    "static/media/advantage3.png": "/izilab_frontend/static/media/advantage3.cadff7b1a8f812ab3191.png",
+    "static/media/logo.png": "/izilab_frontend/static/media/logo.14a661bda92b68959897.png",
+    "static/media/advantage1.png": "/izilab_frontend/static/media/advantage1.68a7c64fe5ad3945ba56.png",
+    "static/media/advantage2.png": "/izilab_frontend/static/media/advantage2.8246f6bddc31f738bce7.png",
+    "static/media/document.png": "/izilab_frontend/static/media/document.5d107e2bb2c5657edd52.png",
+    "static/media/lupa.svg": "/izilab_frontend/static/media/lupa.11a6ad8798dcb859179c6898ab216c36.svg",
+    "static/media/microscope.svg": "/izilab_frontend/static/media/microscope.fa84e5915dff5cb481aaab3a0deabdd2.svg",
+    "static/media/ws_icon.svg": "/izilab_frontend/static/media/ws_icon.ebf38436bcf503fda99d89fef0750685.svg",
+    "static/media/inst_icon.svg": "/izilab_frontend/static/media/inst_icon.908bd938c2038b346e076f06dfe7211a.svg",
+    "index.html": "/izilab_frontend/index.html",
+    "static/media/vk_icon.svg": "/izilab_frontend/static/media/vk_icon.f3629e0a12403e5e2527d4041032a3b1.svg",
+    "static/media/tg_icon.svg": "/izilab_frontend/static/media/tg_icon.c5992f5d2b69d606aa7de609445793e5.svg",
+    "static/media/cross.svg": "/izilab_frontend/static/media/cross.e83d61a1db6ceefe38feec0a4f3dec0e.svg",
+    "static/media/slider_arrow.svg": "/izilab_frontend/static/media/slider_arrow.d7f97d3b800041008c5a7bca1f3cb1a1.svg",
+    "main.42ae086a.css.map": "/izilab_frontend/static/css/main.42ae086a.css.map",
+    "main.f829be0d.js.map": "/izilab_frontend/static/js/main.f829be0d.js.map",
+    "787.189be8b0.chunk.js.map": "/izilab_frontend/static/js/787.189be8b0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.42ae086a.css",
+    "static/js/main.f829be0d.js"
+  ]
+}
