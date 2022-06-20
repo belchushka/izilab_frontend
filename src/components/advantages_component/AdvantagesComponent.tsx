@@ -52,4 +52,4 @@ const AdvantagesComponent = () => {
     );
 };
 
-export default AdvantagesComponent;
+export default React.memo(AdvantagesComponent);

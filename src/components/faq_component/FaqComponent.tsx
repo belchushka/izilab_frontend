@@ -1,21 +1,33 @@
 import React from 'react';
 import s from "./FaqComponent.module.scss"
-import ContainerComponent from "../container_component/ContainerComponent";
 import BlockHeader from "../block_header/BlockHeader";
 import QuestionComponent from "../question_component/QuestionComponent";
+import SeparatorComponent from "../separator_component/SeparatorComponent";
 
 const FaqComponent = () => {
     return (
-        <div className={`${s.container} block`}>
-            <ContainerComponent>
+        <div id={"faq"} className={`${s.container} block`}>
+            <div className={s.container_wrapper}>
                 <BlockHeader title={"Вопрос-ответ"} subtitle={<p>Задать свой вопрос вы можете на наш e-mail <a style={{
                     color:"rgb(228, 61, 117)",
                     textDecoration:"underline",
                 }}>info@izilab.ru</a> либо в соцсетях</p>} alignment={"center"}/>
-                <div className="">
+                <div className={s.container_questions}>
+                    <SeparatorComponent/>
                     <QuestionComponent title={"Нужно ли оформление договора или каких-либо документов при сдаче анализов в партнерском медофисе?"} description={"Нет, в медофисе вы не оформляете договор т.к. вы его акцептировали договор Оферты в момент онлайн-оплаты анализов. В медофисе вы подписываете согласие на медицинское вмешательство."}/>
+                    <QuestionComponent title={"В какой лаборатории выполняются анализы?"} description={"Анализы выполняются в той лаборатории, которую вы выберете для посещения и сдачи анализа по направлению от IZILAB."}/>
+                    <QuestionComponent title={"Как происходит оплата анализов?"} description={"Оплата анализов происходит после того как вы определись с медофисом и анализами. Вам придет ссылка на онлайн-оплату, оплатить анализы возможно только онлайн-оплатой. После оплаты вам высылается электронное направление (в течении 2-ух часов)."}/>
+                    <QuestionComponent title={"Можно ли получить результаты анализов по e-mail?"} description={"Да, результаты анализов мы высылаем по email по их готовности. Не забудьте сообщить администратору ваш e-mail адрес."}/>
+                    <QuestionComponent title={"Нужно ли дополнительно что-то оплачивать в медофисе?"} description={"В медцентре вам потребуется только направление от IZILAB в электронном виде и паспорт.\n" +
+                        "\n" +
+                        "Вы оплачиваете как само выполнение анализа, так и процедуру забора анализа заранее при оформлении заказа по ссылке с помощью онлайн-оплаты.\n" +
+                        "\n" +
+                        "Вы можете оплатить анализы без комиссии с помощью карт: Visa, MasterCard, Мир, а также с помощью ApplePay, Google Pay любого банка, любого вида (кредитные, дебетовые, виртуальные, предоплаченные) и любого типа (Classic, Gold, Platinum, World, в некоторых случаях Maestro, Electron и прочие)."}/>
+                    <QuestionComponent title={"Скажите пожалуйста, если я не успеваю сдать анализы до 10:00?"} description={"При возникновении неожиданных ситуаций, которые влекут за собой значительное изменение времени вашего визита в медофис просьба связаться с менеджером по номеру 8(843)558-00-16"}/>
+                    <QuestionComponent title={"Можно ли сдать анализы ребенку в медофисе?"} description={"Да, конечно. Исключением являются анализы взятие которых выполняются капиллярным методом (кровь из пальца). Для венозной крови действует возрастное ограничение 1+"}/>
+                    <QuestionComponent title={"Можно ли досдать какие-то еще дополнительные анализы помимо тех, которые есть в направлении?"} description={"Можно. Для того, чтобы добавить дополнительные анализы вы можете связаться с нами по тел. 8(843)558-00-16 и мы оперативно скорректируем направление (добавить или убрать показатели/анализы). После сдачи анализов мы вышлем вам ссылку на онлайн-оплату."}/>
                 </div>
-            </ContainerComponent>
+            </div>
         </div>
     );
 };

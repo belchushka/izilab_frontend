@@ -4,11 +4,12 @@ import s from "./ContainerComponent.module.scss"
 interface IContainer {
     children?:React.ReactNode,
     className?:string,
+    id?:string
 }
 
-const ContainerComponent:React.FC<IContainer> =  ({children, className}) => {
+const ContainerComponent:React.FC<IContainer> =  ({children, className, id}) => {
     return (
-        <div className={`${s.container} ${className}`}>
+        <div id={id} className={`${s.container} ${className}`}>
             {children}
         </div>
     );

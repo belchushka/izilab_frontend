@@ -1,48 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import ContainerComponent from "../container_component/ContainerComponent";
 import Logo from "../../assets/images/logo.png"
 import s from "./HeaderComponent.module.scss"
 import SocialButton from "../social_button/SocialButton";
 import CustomButton from "../custom_button/CustomButton";
 import DesktopNavigation from "../desktop_navigation/DesktopNavigation";
+import BurgerMenu from "../../assets/icons/burger_menu.png"
+import MenuContext from "../../contexts/MenuContext";
+import links from "../../utils/landing_links"
 
-const links = [
-    {
-        title:"О лаборатории",
-        link:"",
-    },
-    {
-        title:"Акции",
-        link:"",
-        primary:true
-    },
-    {
-        title:"Отзывы",
-        link:"",
-    },
-    {
-        title:"Услуги и цены",
-        link:"",
-    },
-    {
-        title:"Вопрос-ответ",
-        link:"",
-    },
-    {
-        title:"Выезд на дом",
-        link:"",
-    },
-    {
-        title:"Расшифровка анализов",
-        link:"",
-    },
-    {
-        title:"Контакты",
-        link:"",
-    },
-]
 
 const HeaderComponent: React.FC = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    //@ts-ignore
+    const {setShowMenu} = useContext(MenuContext)
     return (
         <div  className={s.header_wrapper}>
             <ContainerComponent>
@@ -65,6 +36,10 @@ const HeaderComponent: React.FC = () => {
                                 <strong>с 7:00 до 22:00</strong>
                             </p>
                             <CustomButton className={s.header_rightside_button} onClick={()=>null} color={"pink"} text={"Записаться онлайн"}/>
+
+                        </div>
+                        <div onClick={()=>setShowMenu(true)} className={s.header_rightside_burger}>
+                            <img src={BurgerMenu} alt=""/>
                         </div>
                     </div>
                 </header>

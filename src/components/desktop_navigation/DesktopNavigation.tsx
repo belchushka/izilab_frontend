@@ -15,7 +15,7 @@ const DesktopNavigation: React.FC<IDesktopNavigation> = ({links}) => {
     return (
         <div className={s.link_container}>
             {links?.map(el=>{
-                return <a key={el.link} className={el.primary ? s.pink : ''} href={el.link}>{el.title}</a>
+                return <a key={el.link} type={"anchor"} className={el.primary ? s.pink : ''} href={el.link}>{el.title}</a>
             })}
         </div>
     );

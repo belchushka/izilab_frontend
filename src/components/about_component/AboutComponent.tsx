@@ -6,7 +6,7 @@ import BlockHeader from "../block_header/BlockHeader";
 
 const AboutComponent = () => {
     return (
-        <ContainerComponent className={`block ${s.container}`}>
+        <ContainerComponent  id="lab_info"  className={`block ${s.container}`}>
             <div className={s.container_section}>
                 <BlockHeader title={"О лаборатории"} alignment={"left"}/>
                 <p>Медицинская лаборатория IZILAB специализируется на лабораторной диагностике, интерпретации результатов исследований, телемедицине, medtech.
@@ -24,4 +24,4 @@ const AboutComponent = () => {
     );
 };
 
-export default AboutComponent;
+export default React.memo(AboutComponent);
