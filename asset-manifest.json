@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/izilab_frontend/static/css/main.42ae086a.css",
-    "main.js": "/izilab_frontend/static/js/main.f829be0d.js",
+    "main.js": "/izilab_frontend/static/js/main.14bb8241.js",
     "static/js/787.189be8b0.chunk.js": "/izilab_frontend/static/js/787.189be8b0.chunk.js",
     "static/media/screen.png": "/izilab_frontend/static/media/screen.2d0df9cccc9eac191754.png",
     "static/media/doctor.png": "/izilab_frontend/static/media/doctor.148697a7efc6f789f19d.png",
@@ -22,11 +22,11 @@
     "static/media/cross.svg": "/izilab_frontend/static/media/cross.e83d61a1db6ceefe38feec0a4f3dec0e.svg",
     "static/media/slider_arrow.svg": "/izilab_frontend/static/media/slider_arrow.d7f97d3b800041008c5a7bca1f3cb1a1.svg",
     "main.42ae086a.css.map": "/izilab_frontend/static/css/main.42ae086a.css.map",
-    "main.f829be0d.js.map": "/izilab_frontend/static/js/main.f829be0d.js.map",
+    "main.14bb8241.js.map": "/izilab_frontend/static/js/main.14bb8241.js.map",
     "787.189be8b0.chunk.js.map": "/izilab_frontend/static/js/787.189be8b0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.42ae086a.css",
-    "static/js/main.f829be0d.js"
+    "static/js/main.14bb8241.js"
   ]
 }
