@@ -7,8 +7,8 @@ const NavigationComponent = () => {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path={"/"} element={<Landing/>}/>
-                <Route path={"*"} element={<NotFound/>}/>
+                <Route path={"*"} element={<Landing/>}/>
+                {/*<Route path={"*"} element={<NotFound/>}/>*/}
             </Routes>
         </BrowserRouter>
     );

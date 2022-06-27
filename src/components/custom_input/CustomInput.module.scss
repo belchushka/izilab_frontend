@@ -1,0 +1,36 @@
+.input {
+  font-weight: 400;
+  font-size: 16px;
+  color: black;
+  background: white;
+  padding: 12px 15px;
+  border-radius: 8px;
+  &::-webkit-input-placeholder {
+    color: #878787;
+
+  }
+
+  &_search {
+    background: #F9FCFF;
+    width: 100%;
+    border:1px solid #44566673;
+    &_active {
+      padding-left:50px ;
+    }
+  }
+}
+
+.search_input_wrapper {
+  position: relative;
+
+  &_search_icon {
+    width: 19px;
+    height: 19px;
+    position: absolute;
+    top: 50%;
+    left:15px;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+}
+

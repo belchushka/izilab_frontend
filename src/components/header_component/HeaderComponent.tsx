@@ -8,9 +8,13 @@ import DesktopNavigation from "../desktop_navigation/DesktopNavigation";
 import BurgerMenu from "../../assets/icons/burger_menu.png"
 import MenuContext from "../../contexts/MenuContext";
 import links from "../../utils/landing_links"
+import HeaderLocation from "../header_location/HeaderLocation";
+import {useTypedSelector} from "../../store/hooks";
 
 
 const HeaderComponent: React.FC = () => {
+    const user_city = useTypedSelector(state=>state.user.city)
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
     const {setShowMenu} = useContext(MenuContext)
@@ -20,13 +24,15 @@ const HeaderComponent: React.FC = () => {
                 <header className={s.header}>
                     <div className={s.header_leftside}>
                         <img className={s.header_leftside_logo} src={Logo} alt=""/>
-                        <p className={s.header_leftside_text}>
+                        {user_city.id && <p className={s.header_leftside_text}>
                             x медофисов в Казани
                             <br/>
                             <a href="">смотреть на карте</a>
-                        </p>
+                        </p>}
+
                     </div>
                     <div className={s.header_rightside}>
+                        <HeaderLocation user_city={user_city}/>
                         <SocialButton link={"/"} className={s.header_rightside_social_button} type={"telegram"}/>
                         <SocialButton link={"/"} className={s.header_rightside_social_button} type={"whatsapp"}/>
                         <div className={s.header_rightside_content_desktop}>

@@ -12,11 +12,14 @@ import ContainerComponent from "../components/container_component/ContainerCompo
 import Screen from "../assets/images/screen.png"
 import MobileMenu from "../components/mobile_menu/MobileMenu";
 import MenuContext from "../contexts/MenuContext";
+import CitySelectModal from "../components/city_select_modal/CitySelectModal";
+import OrderBlock from "../components/order_block/OrderBlock";
 
 const Landing = () => {
     const [showMenu, setShowMenu] = useState(false)
     return (
         <>
+            {/*<CitySelectModal/>*/}
             <MenuContext.Provider value={{
                 showMenu,
                 setShowMenu
@@ -24,19 +27,15 @@ const Landing = () => {
                 <HeaderComponent/>
                 <MobileMenu/>
             </MenuContext.Provider>
-                <BannerComponent/>
-                <LandingSteps/>
-                <ContainerComponent className={"block"}>
-                    <img style={{
-                        maxWidth:"100%"
-                    }} src={Screen} alt=""/>
-                </ContainerComponent>
-                <AdvantagesComponent/>
-                <AboutComponent/>
-                <ServiceComponent/>
-                <FaqComponent/>
-                <FeedbackComponent/>
-                <FooterComponent/>
+            <BannerComponent/>
+            <LandingSteps/>
+            <OrderBlock/>
+            <AdvantagesComponent/>
+            <AboutComponent/>
+            <ServiceComponent/>
+            <FaqComponent/>
+            <FeedbackComponent/>
+            <FooterComponent/>
         </>
     );
 };

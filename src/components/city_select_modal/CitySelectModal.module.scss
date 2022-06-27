@@ -1,0 +1,39 @@
+
+
+.modal_body {
+  position: fixed;
+  width: 100%;
+  background: rgba(57, 59, 73, 0.55);
+  z-index: 10000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &_container {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 400px;
+    padding: 0;
+
+    &_body {
+      padding: 27px 30px;
+    }
+
+    &_header {
+      width: 100%;
+      padding: 27px 30px;
+      background: #0187FC;
+      border-radius: 15px 15px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      input {
+        max-width: 480px;
+        width: 100%;
+        margin-right: 10px;
+      }
+    }
+  }
+}
