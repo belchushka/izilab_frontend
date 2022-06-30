@@ -1,8 +1,11 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import MapPointer from "../../assets/icons/map_pointer.svg"
 import NavigatorIcon from "../../assets/icons/nvigation_arrow.svg"
 import LocationTriangle from "../../assets/icons/location_triangle.svg"
 import s from "./HeaderLocation.module.scss"
+import CitySelectModal from "../city_select_modal/CitySelectModal";
+import {useTypedDispatch} from "../../store/hooks";
+import {getCitySuggestion, setCurrentCity} from "../../store/actions/cityActions";
 
 interface IHeaderLocation {
     user_city:{
@@ -12,55 +15,61 @@ interface IHeaderLocation {
 }
 
 const HeaderLocation: React.FC<IHeaderLocation> = ({user_city}) => {
+    const [showModal, setShowModal] = useState(false)
+    const [showSuggestion, setShowSuggestion] = useState(false)
+    const [suggestion, setSuggestion] = useState<any>({})
+    const dispatch = useTypedDispatch()
     const fetch_city_name = async ()=>{
-        // const url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/iplocate/address?ip=";
-        // const token = process.env.REACT_APP_DADATA_TOKEN
-        // const ip_address = "31.13.130.213"
-        // const city = await fetch(url + ip_address,{
-        //     method: "GET",
-        //     mode: "cors",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "Accept": "application/json",
-        //         "Authorization": "Token " + token
-        //     }
-        // })
-        // const city_data = await city.json()
-        // if (city_data.location){
-        //     console.log(city_data.location.value)
-        // }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        const city_suggestion = await dispatch(getCitySuggestion())
+        if (city_suggestion!==null){
+            setSuggestion(city_suggestion);
+            setShowSuggestion(true)
+        }
     }
     useEffect(()=>{
        if (user_city.id == null){
            fetch_city_name()
        }
     },[])
+
+    const submitHandler = ()=>{
+        setShowSuggestion(false)
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        dispatch(setCurrentCity(suggestion))
+    }
     return (
-        <div className={s.location_wrapper}>
-            <div className={s.location_info}>
-                <img src={MapPointer} alt=""/>
-                <p className={s.location_info_city}>
-                    {user_city.name ? user_city.name : "Не определено"}
-                </p>
+        <>
+            {showModal && <CitySelectModal hide={()=>setShowModal(false)}/>}
+            <div className={s.location_wrapper}>
+                <div className={s.location_info}>
+                    <img src={MapPointer} alt=""/>
+                    <p className={s.location_info_city} onClick={()=>setShowModal(true)}>
+                        {user_city.name ? user_city.name : "Не определено"}
+                    </p>
+                </div>
+                {(user_city.id==null && showSuggestion) && <div className={s.location_confirm_wrapper}>
+                    <div className={s.location_confirm_triangle}>
+                        <img src={LocationTriangle} alt=""/>
+                    </div>
+                    <div className={s.location_confirm}>
+                        <div className={s.location_confirm_text_wrapper}>
+                            <img src={NavigatorIcon} alt=""/>
+                            <p className={s.location_confirm_text_wrapper_text}>Ваш город <span>{suggestion.name}</span>?</p>
+                        </div>
+                        <div className={s.location_confirm_buttons}>
+                            <button onClick={submitHandler} className={s.location_confirm_buttons_button}>Все верно</button>
+                            <button onClick={()=>setShowModal(true)} className={s.location_confirm_buttons_button}>Выбрать город</button>
+                        </div>
+                    </div>
+                </div>}
+
+
             </div>
-            {user_city.id==null && <div className={s.location_confirm_wrapper}>
-                <div className={s.location_confirm_triangle}>
-                    <img src={LocationTriangle} alt=""/>
-                </div>
-                <div className={s.location_confirm}>
-                    <div className={s.location_confirm_text_wrapper}>
-                        <img src={NavigatorIcon} alt=""/>
-                        <p className={s.location_confirm_text_wrapper_text}>Ваш город <span>Казань</span>?</p>
-                    </div>
-                    <div className={s.location_confirm_buttons}>
-                        <button className={s.location_confirm_buttons_button}>Все верно</button>
-                        <button className={s.location_confirm_buttons_button}>Выбрать город</button>
-                    </div>
-                </div>
-            </div>}
+        </>
 
-
-        </div>
     );
 };
 

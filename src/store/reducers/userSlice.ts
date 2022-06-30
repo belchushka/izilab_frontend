@@ -1,18 +1,16 @@
 import {createSlice} from "@reduxjs/toolkit";
 
-interface IUserCity {
-    id: number | null,
-    name: string | null
-}
 
 interface IInitialState {
-    city: IUserCity
+    cart: any
 }
 
 const initialState: IInitialState = {
-    city: {
-        id: null,
-        name: null
+    cart: {
+        ids: [],
+        price: 0,
+        analysis: [],
+        gifts: []
     }
 }
 
@@ -20,12 +18,28 @@ const userSlice = createSlice({
     name: "user",
     initialState: initialState,
     reducers: {
-        setCity(state, action) {
-            state.city.id = action.payload.id;
-            state.city.name = action.payload.name
-        }
+        addAnalysis(state, action) {
+            const new_cart = state.cart.ids
+            new_cart.push(action.payload)
+            state.cart.ids = Array.from(new Set(new_cart))
+        },
+        removeAnalysis(state, action) {
+            state.cart.ids = state.cart.ids.filter((el: any) => {
+                return el !== action.payload
+            })
+        },
+        setCartAnalysis(state, action) {
+            state.cart.analysis = action.payload
+        },
+        setCartGifts(state, action) {
+            state.cart.gifts = action.payload
+        },
+        setCartPrice(state, action) {
+            state.cart.price = action.payload
+        },
     }
 })
 
-export const {setCity} = userSlice.actions
+export const {addAnalysis, removeAnalysis, setCartPrice, setCartGifts, setCartAnalysis} = userSlice.actions
+
 export default userSlice.reducer

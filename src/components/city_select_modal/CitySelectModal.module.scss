@@ -3,11 +3,18 @@
 .modal_body {
   position: fixed;
   width: 100%;
+  top: 0;
+  left: 0;
   background: rgba(57, 59, 73, 0.55);
   z-index: 10000;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &_input {
+    background: white;
+    border: none;
+  }
 
   &_container {
     background: white;
@@ -21,6 +28,7 @@
     }
 
     &_header {
+      margin-top: 0;
       width: 100%;
       padding: 27px 30px;
       background: #0187FC;

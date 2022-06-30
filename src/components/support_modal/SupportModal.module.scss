@@ -1,0 +1,61 @@
+.modal_body {
+  max-width: 500px;
+  padding-bottom: 15px;
+
+  &_input {
+    margin-top: 20px;
+  }
+
+  h4 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+
+    color: #423A3A;
+    text-align: center;
+  }
+
+  & > p {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 20px;
+    /* or 143% */
+
+    text-align: center;
+
+    color: #423A3A;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  span {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 16px;
+    display: inline-block;
+    /* or 133% */
+
+    text-align: center;
+
+    color: #666666;
+  }
+
+  &_button {
+
+    &_wrapper {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    p {
+      margin-top: 0;
+      margin-bottom: 0;
+      color:white;
+
+    }
+  }
+}

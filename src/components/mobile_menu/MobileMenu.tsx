@@ -1,7 +1,7 @@
 import React, {MouseEventHandler, useContext, useRef} from 'react';
 import s from "./MobileMenu.module.scss"
 import MenuContext from "../../contexts/MenuContext";
-import links from "../../utils/landing_links"
+import links from "../../utils/landing_links_dummy"
 
 const MobileMenu = () => {
     const menuRef = useRef<HTMLDivElement>(null)
@@ -29,7 +29,7 @@ const MobileMenu = () => {
                         <span></span>
                         <span></span>
                     </div>
-                    {links?.map(el=>{
+                    {links?.map((el:any)=>{
                         return <a key={el.link} onClick={()=>setShowMenu(false)} type={"anchor"} className={el.primary ? s.pink : ''} href={el.link}>{el.title}</a>
                     })}
                 </div>

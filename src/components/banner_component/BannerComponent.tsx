@@ -20,8 +20,12 @@ const BannerComponent = () => {
                         Выбирайте любой!
                     </p>
                     <div className={s.banner_container_leftside_buttons}>
-                        <CustomButton text={"Записаться онлайн"} color={"pink"} onClick={()=>null}/>
-                        <CustomButton text={"Выезд на дом"} color={"blue"} onClick={()=>null}/>
+                        <CustomButton type={"landing"} color={"pink"} onClick={()=>null}>
+                            <span>Записаться онлайн</span>
+                        </CustomButton>
+                        <CustomButton type={"landing"} color={"blue"} onClick={()=>null}>
+                            <span>Выезд на дом</span>
+                        </CustomButton>
                     </div>
                 </div>
                 <div className={s.banner_container_rightside}>

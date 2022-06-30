@@ -1,0 +1,129 @@
+@import "../../styles/mixin";
+
+.modal_body {
+  max-width: 650px;
+  &_button {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 45px;
+
+    button {
+      min-width: 260px;
+    }
+
+
+    &_between {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &_stock {
+      margin-top: 7px;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 20px;
+      color: #0187FC;
+
+      &_price {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 20px;
+        /* identical to box height, or 167% */
+
+
+        color: #E5E8F9;
+        margin-right: 10px;
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  &_title, &_code {
+    font-family: 'Roboto', Areal, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    color: #0187FC;
+    max-width: 60%;
+
+
+    @include adaptive("xsm"){
+      max-width: 100%;
+      margin-top: 10px;
+
+    }
+  }
+  &_code {
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+
+    @include adaptive("xsm"){
+      max-width: 100%;
+      margin-top: 5px;
+    }
+  }
+
+  &_section_title {
+    font-family: 'Roboto', Areal,sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+
+    color: #666666;
+
+    &_description {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    &_error {
+      color: #FC4483;
+    }
+  }
+
+  &_info {
+    display: flex;
+    margin-top: 20px;
+    margin-left: -40px;
+    div {
+      margin-left: 40px;
+
+      p:nth-child(2){
+        color: #423A3A;
+        font-weight: 300;
+      }
+    }
+
+  }
+
+  &_compound {
+    margin-top: 15px;
+    max-height: 140px;
+    overflow-y: auto ;
+    &_list {
+      margin-top: 8px;
+
+      p{
+        display: block;
+        margin-top: 2px;
+        font-weight: 300;
+        color:#423A3A;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &_description_block {
+    max-height: 220px;
+  }
+
+}

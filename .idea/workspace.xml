@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/gift_icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_modal_compound/AnalysisModalCompound.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/analysis_modal_compound/AnalysisModalCompound.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/gift_card/GiftCard.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/gift_card/GiftCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/modal/Modal.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/modal/Modal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/contexts/NextStepContext.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/cityActions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/actions/userActions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/analysisSlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/citySlice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/categories_dummy.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utils/get_office_schedule.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/banner_component/BannerComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/banner_component/BannerComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category_select/CategorySelect.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select/CategorySelect.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category_select/CategorySelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select/CategorySelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/custom_button/CustomButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_button/CustomButton.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/custom_button/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_button/CustomButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gift_progress/GiftProgress.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gift_progress/GiftProgress.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/gift_progress/GiftProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gift_progress/GiftProgress.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/mobile_menu/MobileMenu.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/mobile_menu/MobileMenu.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order_block/OrderBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order_block/OrderBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/service_component/ServiceComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/service_component/ServiceComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/http/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/http/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/screens/Landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Landing.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/hooks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/hooks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/landing_links.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/landing_links_dummy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/node_modules/swiper/react/swiper-react.d.ts" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/support_modal/SupportModal.module.scss" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/http/index.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/store/actions/userActions.ts" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/store/reducers/userSlice.ts" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2BAj9IdjLDf1ESnR50C6rEqCx05" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/belchushka/Документы/izilab_backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "ts.external.directory.path": "/home/belchushka/Документы/izilab_frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/icons" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="" />
+      <created>1656355630800</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1656355630800</updated>
+      <workItem from="1656355632154" duration="2047000" />
+      <workItem from="1656357696456" duration="81000" />
+      <workItem from="1656357787653" duration="56000" />
+      <workItem from="1656357854254" duration="72000" />
+      <workItem from="1656357937371" duration="171000" />
+      <workItem from="1656399850912" duration="14556000" />
+      <workItem from="1656416764594" duration="9870000" />
+      <workItem from="1656487570047" duration="8385000" />
+      <workItem from="1656503020910" duration="8866000" />
+      <workItem from="1656575251411" duration="2194000" />
+      <workItem from="1656578144250" duration="2922000" />
+      <workItem from="1656600309084" duration="3821000" />
+      <workItem from="1656608779630" duration="97000" />
+      <workItem from="1656609352338" duration="4138000" />
+      <workItem from="1656617998134" duration="1758000" />
+      <workItem from="1656620344876" duration="8000" />
+      <workItem from="1656620353424" duration="7000" />
+      <workItem from="1656623273586" duration="1718000" />
+      <workItem from="1656625087289" duration="9000" />
+      <workItem from="1656625663970" duration="1461000" />
+      <workItem from="1656627229079" duration="349000" />
+      <workItem from="1656627732953" duration="300000" />
+      <workItem from="1656628183343" duration="512000" />
+      <workItem from="1656629030575" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

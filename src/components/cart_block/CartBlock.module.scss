@@ -1,0 +1,238 @@
+@import "../../styles/mixin";
+
+.cart_wrapper {
+  margin-top: 30px;
+
+  &_container {
+    @include adaptive("sm"){
+      max-width: 780px;
+      padding: 0 20px;
+    }
+  }
+}
+
+.cart_header {
+  display: flex;
+  align-items: center;
+
+  @include adaptive("xxsm"){
+    justify-content: space-between;
+  }
+  &_title {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 26px;
+    line-height: 30px;
+    color: #414770;
+
+    @include adaptive("xxsm"){
+      font-size: 22px;
+      white-space: nowrap;
+      color:#0187FC
+    }
+  }
+
+  &_clear {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: underline;
+    color: #414770;
+    margin-left: 25px;
+    cursor: pointer;
+    @include adaptive("xxsm"){
+      margin-left: 0;
+      white-space: nowrap;
+    }
+  }
+}
+
+.cart_sections {
+  width: 100%;
+  display: flex;
+  margin-top: 25px;
+  @include adaptive("xsm"){
+    flex-wrap: wrap;
+
+  }
+  &_section {
+    width: 50%;
+
+    @include adaptive("xsm"){
+      width: 100%;
+    }
+    &_analysis {
+      margin-top: 10px;
+
+      &:first-child{
+        margin-top: 0;
+      }
+
+      &_list {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+        padding-right: 15px;
+
+        @include adaptive("xsm"){
+          position: static;
+          height: 60vh;
+        }
+      }
+    }
+    &:first-child {
+      position: relative;
+      align-self: stretch;
+      margin-right: 15px;
+
+      @include adaptive("xsm"){
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+    }
+
+    &:nth-child(2) {
+      margin-top: -25px;
+    }
+
+    &_gifts {
+      display: flex;
+      margin-left: -20px;
+      flex-wrap: wrap;
+
+      @include adaptive("sm"){
+        margin-left: -10px;
+      }
+    }
+
+    &_block {
+      &_title {
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 23px;
+        color: #423A3A;
+        margin: 25px 0 15px 0;
+      }
+    }
+  }
+}
+
+.office_select {
+  input {
+    margin-top: 15px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.order_details {
+  margin-top: 30px;
+  padding: 20px 30px;
+  border: 1px solid #44566673;
+  border-radius: 7px;
+
+  &_list {
+    margin-top: 14px;
+
+    &_inner {
+      margin-top: 7px;
+      display: flex;
+      justify-content: space-between;
+
+
+      &_stock {
+        color:#0187FC !important;
+      }
+
+      p {
+        font-family: 'Arial';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 17px;
+        /* identical to box height, or 113% */
+
+
+        color: #414770;
+
+      }
+
+      &_total {
+        p {
+          font-weight: 700;
+          font-size: 16px;
+        }
+
+        &_price {
+          display: flex;
+          align-items: center;
+          p {
+            font-weight: 600;
+            font-size: 20px;
+            color: #423A3A;
+          }
+          span {
+            font-family: 'Arial';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 14px;
+            text-decoration: line-through;
+            color: #666666;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+  }
+
+  h4 {
+    font-family: 'Arial';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #414770;
+  }
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+
+  @include adaptive("xsm"){
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    min-width: 264px;
+
+    &:first-child {
+      background: #AED9FF;
+      font-family: 'Arial';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 18px;
+
+      color: #414770;
+    }
+
+    &:nth-child(2){
+      @include adaptive("xsm"){
+        margin-top: 10px;
+      }
+    }
+  }
+}

@@ -1,9 +1,12 @@
+@import "../../styles/mixin";
+
 .category_body {
   width: 100%;
   position: relative;
   border-radius: 7px;
   background: #E8F4FF;
   cursor: pointer;
+  transition: .2s background-color;
 
   &:before {
     content:"";
@@ -14,6 +17,18 @@
   &_selected {
     background: #0187FC;
     color: white;
+    @include adaptive("xxsm"){
+      background: white;
+
+      *{
+        color: #0187FC !important;
+
+      }
+    }
+  }
+
+  @include adaptive("xxsm"){
+    background: white;
   }
 }
 
@@ -26,6 +41,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  &_dot {
+    display: none !important;
+    color: #AED9FF;
+    @include adaptive("xxsm"){
+      display: inline-block !important;
+      transform: translateY(1px);
+
+    }
+    margin-right: 8px;
+    font-size: 28px!important;
+    margin-top: 0 !important;
+  }
+
   img {
     width: 60px;
     height: 60px;
@@ -33,11 +62,13 @@
   }
 
   span {
-    font-family: 'Roboto';
+    font-family: "Roboto", Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
     font-size: 13px;
-    display: inline-block;
+    display: flex;
     margin-top: 8px;
+    white-space: nowrap;
+    align-items: center;
   }
 }

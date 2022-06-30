@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import BlockHeader from "../block_header/BlockHeader";
 import ContainerComponent from "../container_component/ContainerComponent";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -7,11 +7,29 @@ import {ProgressBar, Step} from "react-step-progress-bar"
 import "react-step-progress-bar/styles.css";
 import s from "./OrderBlock.module.scss"
 import AnalysisSelectBlock from "../analysis_select_block/AnalysisSelectBlock";
+import CartBlock from "../cart_block/CartBlock";
+import NextStepContext from "../../contexts/NextStepContext";
+
 
 const OrderBlock = () => {
     const [step, setStep] = useState<number>(0)
+    const orderBlockRef=  useRef<HTMLDivElement>(null)
+    const nextStep = ()=>{
+        if (step<2){
+            setStep(state=>state+1)
+            if (orderBlockRef.current) orderBlockRef.current.scrollIntoView()
+
+        }
+    }
+
+    const prevStep = ()=>{
+        if (step>0){
+            setStep(state=>state-1)
+            if (orderBlockRef.current) orderBlockRef.current.scrollIntoView()
+        }
+    }
     return (
-        <div className={`block`}>
+        <div ref={orderBlockRef} className={`block`}>
             <ContainerComponent className={s.header}>
                 <BlockHeader title={"Оформить заказ"}  alignment={"center"}/>
                 <div className={s.header_progress}>
@@ -46,7 +64,19 @@ const OrderBlock = () => {
                     </ProgressBar>
                 </div>
             </ContainerComponent>
-            <AnalysisSelectBlock/>
+            <NextStepContext.Provider value={{
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                nextStep: nextStep,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                prevStep: prevStep
+            }}>
+                {step == 0 &&  <AnalysisSelectBlock/>}
+                {step == 1 && <CartBlock/>}
+            </NextStepContext.Provider>
+
+
         </div>
     );
 };

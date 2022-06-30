@@ -3,8 +3,10 @@ import ContainerComponent from "../container_component/ContainerComponent";
 import BlockHeader from "../block_header/BlockHeader";
 import s from "./ServiceComponent.module.scss"
 import {YMaps, Map, ZoomControl, GeolocationControl, Placemark} from "react-yandex-maps";
+import {useTypedSelector} from "../../store/hooks";
 
 const ServiceComponent = () => {
+    const city_offices = useTypedSelector(state=>state.city.offices)
     return (
         <ContainerComponent id={"services"} className={`${s.service_wrapper} block`}>
             <BlockHeader title={"Услуги и цены"} subtitle={<p>Ниже вы можете ознакомиться с нашим прайс-листом
@@ -33,20 +35,23 @@ const ServiceComponent = () => {
                                 <Map className={s.service_wrapper_content_info_block_map} defaultState={{center: [55.78874 ,49.12214], zoom: 12 }}  width={"100%"} height={"100%"}>
                                     <ZoomControl/>
                                     <GeolocationControl/>
-                                    <Placemark geometry={[55.78874 ,49.12214]}  properties = {{
-                                        balloonContent: 'г. Казань, ул. Даурская, 25 Сдача биоматериала: Пн-Пт - с 7:00 до 10:00 Сб - с 7:30 до 10:00 Вс - с 8:00 до 10:00'
-                                    }} options={{
-                                        iconLayout:"default#image",
-                                        iconImageSize: [40, 40],
-                                        iconShape: {
-                                            type: 'Circle',
-                                            coordinates: [0, 0],
-                                            radius: 60
-                                        },
-                                        iconImageHref: 'https://media.istockphoto.com/vectors/white-caduceus-medical-symbol-icon-isolated-with-long-shadow-medicine-vector-id1182028878?k=20&m=1182028878&s=612x612&w=0&h=UGmurnUc4cq3WuiJTCh5C8BtTFe__bCJZgv3JLpxeTk=',
-                                    }}
-                                    modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
-                                    />
+                                    {city_offices?.map((el:any)=>{
+                                       return <Placemark key={el.id} geometry={[el.latitude, el.longitude]}  properties = {{
+                                            balloonContent: `${el.address}`
+                                        }} options={{
+                                            iconLayout:"default#image",
+                                            iconImageSize: [40, 40],
+                                            iconShape: {
+                                                type: 'Circle',
+                                                coordinates: [0, 0],
+                                                radius: 60
+                                            },
+                                            iconImageHref: 'https://media.istockphoto.com/vectors/white-caduceus-medical-symbol-icon-isolated-with-long-shadow-medicine-vector-id1182028878?k=20&m=1182028878&s=612x612&w=0&h=UGmurnUc4cq3WuiJTCh5C8BtTFe__bCJZgv3JLpxeTk=',
+                                        }}
+                                                   modules={['geoObject.addon.balloon', 'geoObject.addon.hint']}
+                                        />
+                                    })}
+
                                 </Map>
                             </div>
                         </YMaps>

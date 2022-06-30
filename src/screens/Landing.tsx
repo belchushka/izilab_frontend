@@ -8,18 +8,14 @@ import FaqComponent from "../components/faq_component/FaqComponent";
 import ServiceComponent from "../components/service_component/ServiceComponent";
 import FeedbackComponent from "../components/feedback_component/FeedbackComponent";
 import FooterComponent from "../components/footer_component/FooterComponent";
-import ContainerComponent from "../components/container_component/ContainerComponent";
-import Screen from "../assets/images/screen.png"
 import MobileMenu from "../components/mobile_menu/MobileMenu";
 import MenuContext from "../contexts/MenuContext";
-import CitySelectModal from "../components/city_select_modal/CitySelectModal";
 import OrderBlock from "../components/order_block/OrderBlock";
 
 const Landing = () => {
     const [showMenu, setShowMenu] = useState(false)
     return (
         <>
-            {/*<CitySelectModal/>*/}
             <MenuContext.Provider value={{
                 showMenu,
                 setShowMenu
