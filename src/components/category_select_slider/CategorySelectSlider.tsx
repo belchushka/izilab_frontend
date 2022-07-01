@@ -98,4 +98,4 @@ const CategorySelectSlider: React.FC<ICategorySelectSlider> = ({onSelectCategory
     );
 };
 
-export default CategorySelectSlider;
+export default React.memo(CategorySelectSlider);

@@ -32,4 +32,4 @@ const FaqComponent = () => {
     );
 };
 
-export default FaqComponent;
+export default React.memo(FaqComponent);

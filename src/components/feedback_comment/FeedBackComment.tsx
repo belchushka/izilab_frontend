@@ -21,4 +21,4 @@ const FeedBackComment: React.FC<IFeedbackComment> = ({text, name, name_subtitle}
     );
 };
 
-export default FeedBackComment;
+export default React.memo(FeedBackComment);

@@ -81,5 +81,5 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
     );
 };
 
-export default AnalysisCard;
+export default React.memo(AnalysisCard);
 

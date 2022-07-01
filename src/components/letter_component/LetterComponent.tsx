@@ -3,13 +3,15 @@ import s from "./LetterComponent.module.scss"
 
 interface ILetterComponent {
     content: string,
-    className?: string
+    className?: string,
+    selected?: boolean,
+    select: (id:number,query: string)=>void,
+    id: number
 }
 
-const LetterComponent: React.FC<ILetterComponent> = ({content, className}) => {
-    const [active, setActive] = useState(false)
+const LetterComponent: React.FC<ILetterComponent> = ({content, className, selected=false, select, id}) => {
     return (
-        <div onClick={()=>setActive(state=>!state)} className={`${className} ${s.letter} ${active && s.letter_active}`}>
+        <div onClick={()=>select(id,content)} className={`${className} ${s.letter} ${selected && s.letter_active}`}>
             <span>{content}</span>
         </div>
     );

@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useState} from 'react';
 import ContainerComponent from "../container_component/ContainerComponent";
 import {IconInput} from "../custom_input/CustomInput";
 import s from "./AnalysisSelectBlock.module.scss";
@@ -21,11 +21,12 @@ const AnalysisSelectBlock = () => {
     const dispatch = useTypedDispatch()
     const analysisList = useTypedSelector(state => state.analysis.analysis_list)
     const cart = useTypedSelector(state => state.user.cart)
-    const cart_price = cart.price
+    const cart_price = cart.price_with_stock
+    const cart_sempling_price = cart.sempling_price
     const cart_ids = cart.ids
-    const onSelectCategory = (categoryName: string, id: number) => {
+    const onSelectCategory =useCallback((categoryName: string, id: number) => {
         setSelectedCategory(id)
-    }
+    }, [])
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
@@ -69,7 +70,7 @@ const AnalysisSelectBlock = () => {
                     }
                     {cart.ids.length > 0 && <div className={s.block_wrapper_next_step}>
                         <CustomButton onClick={nextStep} type={"order"}>
-                            <span>Перейти в корзину ({cart.ids.length}) {cart_price} Р</span>
+                            <span>Перейти в корзину ({cart.ids.length}) {cart_price+cart_sempling_price} Р</span>
                         </CustomButton>
                         <span onClick={() => setShowSupport(true)}>Не могу найти нужные анализы</span>
                     </div>

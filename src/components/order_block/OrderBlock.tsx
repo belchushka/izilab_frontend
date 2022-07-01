@@ -29,7 +29,7 @@ const OrderBlock = () => {
         }
     }
     return (
-        <div ref={orderBlockRef} className={`block`}>
+        <div ref={orderBlockRef} id={"order"} className={`block`}>
             <ContainerComponent className={s.header}>
                 <BlockHeader title={"Оформить заказ"}  alignment={"center"}/>
                 <div className={s.header_progress}>

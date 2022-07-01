@@ -40,4 +40,4 @@ export const IconInput: React.FC<ISearchInput> = ({placeholder, className, onInp
     );
 };
 
-export default CustomInput;
+export default React.memo(CustomInput);

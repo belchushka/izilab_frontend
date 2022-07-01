@@ -26,6 +26,8 @@
     line-height: 30px;
     color: #414770;
 
+
+
     @include adaptive("xxsm"){
       font-size: 22px;
       white-space: nowrap;
@@ -66,11 +68,6 @@
     }
     &_analysis {
       margin-top: 10px;
-
-      &:first-child{
-        margin-top: 0;
-      }
-
       &_list {
         position: absolute;
         top: 0;
@@ -120,6 +117,17 @@
         line-height: 23px;
         color: #423A3A;
         margin: 25px 0 15px 0;
+
+        &_error {
+          font-style: normal;
+          font-weight: 700;
+          font-size: 14px;
+          line-height: 26px;
+          /* identical to box height, or 186% */
+          margin-bottom: 10px;
+
+          color: #FC4483;
+        }
       }
     }
   }
@@ -233,6 +241,76 @@
       @include adaptive("xsm"){
         margin-top: 10px;
       }
+    }
+  }
+}
+
+.analysis_wrapper {
+  padding: 10px;
+  border: 1px solid #FFE8F0;
+  border-radius: 8px;
+  margin: 10px 0;
+
+  & > div {
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}
+
+.cart_select {
+  padding: 12px 15px;
+  border: 1px solid #44566673;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  height: 45px;
+  align-items: center;
+  color: #878787;
+  margin-top: 15px;
+
+  &_office {
+    &_btn {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      span {
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 14px;
+        color: #0187FC
+      }
+      img {
+        margin-left: 5px;
+        max-width: 15px;
+      }
+    }
+  }
+
+  &_city {
+    border: none;
+    padding: 0;
+    &_text {
+      width: 50%;
+      border: 1px solid #44566673;
+      align-self: stretch;
+      border-radius: 8px 0 0 8px;
+      display: flex;
+      align-items: center;
+      padding-left: 15px;
+    }
+    &_btn {
+      width: 50%;
+      background: #0187FC;
+      height: 100%;
+      border-radius: 0 8px 8px 0;
+      border: 1px solid #0187FC;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      cursor: pointer;
     }
   }
 }

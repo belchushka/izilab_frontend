@@ -11,10 +11,11 @@ interface IAnalysisModal {
     showBottom?: boolean,
     stock_endtime?: string|number,
     in_cart?: boolean,
-    toggle_cart?: MouseEventHandler<HTMLButtonElement>
+    toggle_cart?: MouseEventHandler<HTMLButtonElement>,
+    type?: "default" | "cart"
 }
 
-const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBottom=true, toggle_cart, stock_endtime, in_cart}) => {
+const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBottom=true, toggle_cart, stock_endtime,type="default", in_cart}) => {
 
     return (
         <Modal zIndex={zIndex} hide={hide} className={s.modal_body}>
@@ -68,19 +69,33 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
                     </p>
                 </div>
             </div>
-            {showBottom &&  <div className={s.modal_body_button}>
-                <CustomButton type={"order"} onClick={toggle_cart} className={`${in_cart ? s.modal_body_button_center : s.modal_body_button_between}`}>
-                    <p>{in_cart ? "Удалить из корзины": "Заказать"}</p>
-                    <p>{!in_cart &&
+            {showBottom &&
+                <div className={`${s.modal_body_button} ${type=="cart" && s.modal_body_button_cart}`}>
+                    {type == "default" &&
                         <>
-                            <span className={s.modal_body_button_stock_price}>{data.analysis_data.has_stock && `${data.analysis_data.prev_stock_price} P`}</span>
-                            {data.analysis_data.price} P
+                            <CustomButton type={"order"} onClick={toggle_cart} className={`${in_cart ? s.modal_body_button_center : s.modal_body_button_between}`}>
+                                <p>{in_cart ? "Удалить из корзины": "Заказать"}</p>
+                                <p>{!in_cart &&
+                                    <>
+                                        <span className={s.modal_body_button_stock_price}>{data.analysis_data.has_stock && `${data.analysis_data.prev_stock_price} P`}</span>
+                                        {data.analysis_data.price} P
+                                    </>
+                                }
+                                </p>
+                            </CustomButton>
+                            {data.analysis_data.has_stock && <p className={s.modal_body_button_stock}>до конца акции осталось {stock_endtime} дней</p>}
                         </>
                     }
-                    </p>
-                </CustomButton>
-                {data.analysis_data.has_stock && <p className={s.modal_body_button_stock}>до конца акции осталось {stock_endtime} дней</p>}
-            </div>}
+                    {type == "cart" &&
+                        <>
+                            <p>{data.analysis_data.price} P</p>
+                            <CustomButton onClick={toggle_cart} type={"order"}>
+                                <p>Удалить</p>
+                            </CustomButton>
+                        </>
+                    }
+                 </div>
+            }
 
         </Modal>
 

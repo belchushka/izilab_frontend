@@ -25,4 +25,4 @@ const CategorySelect: React.FC<ICategorySelect> = ({id,icon,text, selected, cate
     );
 };
 
-export default CategorySelect;
+export default React.memo(CategorySelect);

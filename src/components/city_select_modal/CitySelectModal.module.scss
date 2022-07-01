@@ -1,4 +1,4 @@
-
+@import "../../styles/mixin";
 
 .modal_body {
   position: fixed;
@@ -20,9 +20,9 @@
     background: white;
     border-radius: 15px;
     overflow: hidden;
-    height: 400px;
+    min-height: 400px;
     padding: 0;
-
+    padding-bottom: 40px;
     &_body {
       padding: 27px 30px;
     }
@@ -43,5 +43,29 @@
         margin-right: 10px;
       }
     }
+  }
+}
+
+.cities_list {
+  margin-top: 20px;
+  max-width: 60%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  @include adaptive("xsm"){
+    max-width: 100%;
+    width: 100%;
+  }
+  p {
+    width: calc(100% / 4 - 20px);
+    margin-left: 20px;
+    margin-top: 20px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+
+    color: #0187FC;
+    cursor: pointer;
   }
 }

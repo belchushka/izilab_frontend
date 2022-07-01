@@ -9,6 +9,14 @@
   min-width: 163px;
   white-space: nowrap;
   text-align: center;
+
+  &_landing {
+    @include adaptive("xsm"){
+      font-size: 12px;
+      padding: 5px 7px;
+      min-width: 106px;
+    }
+  }
   &_pink {
     background-color: $button_pink;
     transition: background-color .5s;
@@ -18,10 +26,10 @@
   }
 
   &_blue {
-    background-color: $button_blue;
-    transition: background-color .5s;
+    background-color: $button_blue !important;
+    transition: background-color .5s !important;
     &:hover {
-      background: $button_pink;
+      background: $button_pink !important;
     }
   }
 
@@ -40,10 +48,20 @@
     }
   }
 
-  @include adaptive("xsm"){
+  &_cart {
+    min-width: 100px;
+    display: flex;
+    justify-content: center;
+    font-style: normal;
+    font-weight: 400;
     font-size: 12px;
-    padding: 5px 7px;
-    min-width: 106px;
+    line-height: 14px;
+    border-radius: 7px;
+    padding: 8px 0 !important;
+    /* identical to box height */
+
+
+    color: #FFE8F0;
   }
 
 }

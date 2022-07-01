@@ -70,4 +70,4 @@ const FeedbackComponent = () => {
     );
 };
 
-export default FeedbackComponent;
+export default React.memo(FeedbackComponent);

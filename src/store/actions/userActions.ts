@@ -1,6 +1,12 @@
 import {AppDispatch, AppThunkAction} from "../types";
 import {$host} from "../../http";
-import {setCartAnalysis, setCartGifts, setCartPrice} from "../reducers/userSlice";
+import {
+    setCartAnalysis,
+    setCartPrice, setCartPriceWithStock,
+    setCartSemplingPrice,
+    setCartSemplings
+} from "../reducers/userSlice";
+import {setAnalysisGifts} from "../reducers/analysisSlice";
 
 
 export const sendSupportRequest: AppThunkAction = (name, phone) => async (dispatch: AppDispatch) => {
@@ -16,27 +22,32 @@ export const sendSupportRequest: AppThunkAction = (name, phone) => async (dispat
 
 export const countCartPriceWithoutData: AppThunkAction = (cart) => async (dispatch: AppDispatch) => {
     try {
-        const {data: price} = await $host.post("analysis/count_cart_price_without_data", {
+        const {data}: any = await $host.post("analysis/count_cart_price_without_data", {
             cart: cart
         })
-        dispatch(setCartPrice(price))
+        dispatch(setCartPrice(data.total_price))
+        dispatch(setCartSemplingPrice(data.sempling_price))
+        dispatch(setCartPriceWithStock(data.price_with_stock))
     } catch (e) {
         return e
     }
 }
 
-export const countCartPrice: AppThunkAction = (cart, office_id, date) => async (dispatch: AppDispatch) => {
+export const countCartPrice: AppThunkAction = (cart, officeId, date) => async (dispatch: AppDispatch) => {
     try {
-        const data: any = await $host.post("analysis/count_cart_price", {
+        const {data}: any = await $host.post("analysis/count_cart_price", {
             cart: cart,
-            office_id,
+            officeId,
             date
         })
-        dispatch(setCartPrice(data.price))
+        dispatch(setCartPrice(data.total_price))
         if (data.gifts) {
-            dispatch(setCartGifts(data.gifts))
+            dispatch(setAnalysisGifts(data.gifts))
         }
         dispatch(setCartAnalysis(data.analysis))
+        dispatch(setCartSemplings(data.semplings))
+        dispatch(setCartSemplingPrice(data.sempling_price))
+        dispatch(setCartPriceWithStock(data.price_with_stock))
     } catch (e) {
         return e
     }

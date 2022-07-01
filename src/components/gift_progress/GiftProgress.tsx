@@ -4,10 +4,11 @@ import s from "./GiftProgress.module.scss"
 import GiftIcon from "../../assets/icons/gift_icon.svg"
 
 const GiftProgress = () => {
-    const cart_price = useTypedSelector(state=>state.user.cart.price)
+    const cart = useTypedSelector(state=>state.user.cart)
+    console.log(cart);
     const cart_amount = useMemo(() => {
-        return 5000 - cart_price
-    }, [cart_price])
+        return 5000 - cart.price_with_stock - cart.sempling_price
+    }, [cart])
     return (
         <div className={s.gift_body}>
             {cart_amount == 0 ? <p>
@@ -22,7 +23,7 @@ const GiftProgress = () => {
                 <div className={s.gift_body_bar_thumb}>
                     <div className={s.gift_body_bar_thumb_progress} style={{
                         transition:"1s",
-                        width: cart_amount == 5000 ? "9px" : (100-cart_amount/5000*100)+"%"
+                        width: cart_amount == 5000 ? "9px" : `calc(${(100-cart_amount/5000*100)}% + 9px)`
                     }}>
                         <div className={s.gift_body_bar_thumb_track}></div>
 

@@ -5,7 +5,7 @@ export default [
     },
     {
         title:"Акции",
-        link:"/",
+        link:"#order",
         primary:true
     },
     {

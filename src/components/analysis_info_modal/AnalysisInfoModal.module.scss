@@ -12,6 +12,26 @@
       min-width: 260px;
     }
 
+    &_cart {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: center;
+      & > p {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 24px;
+        /* identical to box height, or 100% */
+
+
+        color: #423A3A;
+      }
+      button {
+        min-width: auto;
+      }
+    }
+
 
     &_between {
         display: flex;
