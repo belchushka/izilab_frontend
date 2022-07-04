@@ -258,6 +258,11 @@
   }
 }
 
+.cart_select, .custom_select {
+  margin-top: 15px;
+
+}
+
 .cart_select {
   padding: 12px 15px;
   border: 1px solid #44566673;
@@ -267,7 +272,16 @@
   height: 45px;
   align-items: center;
   color: #878787;
-  margin-top: 15px;
+  transition: .2s;
+
+  &_error {
+    border: 1px solid #FC4483 !important;
+
+  }
+
+  &_selected {
+    color: black !important;
+  }
 
   &_office {
     &_btn {

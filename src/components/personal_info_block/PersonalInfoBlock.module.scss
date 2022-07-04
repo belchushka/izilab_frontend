@@ -1,0 +1,54 @@
+@import "../../styles/mixin";
+
+.header {
+  margin: 30px 0;
+  h3 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 23px;
+    /* identical to box height */
+
+
+    color: #414770;
+  }
+}
+
+.sex_radio {
+  display: flex;
+
+  & > div:nth-child(2){
+    margin-left: 40px;
+  }
+}
+
+.input_row {
+  display: flex;
+  margin-left: -20px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+
+  @include adaptive("xsm"){
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}
+
+.row_input {
+  width: calc(100% / 3 - 20px);
+  margin-left: 20px;
+
+  @include adaptive("xsm"){
+    width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+  }
+}
+
+.expanded_input {
+  margin-top: 20px;
+}
+
+.personal_info_radio {
+  margin-top: 22px;
+}

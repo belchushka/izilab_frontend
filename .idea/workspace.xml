@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="backup">
-      <change afterPath="$PROJECT_DIR$/src/components/sempling_card/SemplingCard.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/sempling_card/SemplingCard.tsx" afterDir="false" />
+    <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="initial commit">
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/calendar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/custom_select/CustomSelect.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.module.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/category_select/CategorySelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select/CategorySelect.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_button/CustomButton.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_button/CustomButton.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_button/CustomButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_button/CustomButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/faq_component/FaqComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/faq_component/FaqComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/feedback_comment/FeedBackComment.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feedback_comment/FeedBackComment.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/feedback_component/FeedbackComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/feedback_component/FeedbackComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gift_card/GiftCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gift_card/GiftCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gift_card/GiftCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gift_card/GiftCard.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/gift_progress/GiftProgress.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gift_progress/GiftProgress.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/letter_component/LetterComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/letter_component/LetterComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/letter_select_component/LetterSelectComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/letter_select_component/LetterSelectComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/Modal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/userActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/userActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/analysisSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/analysisSlice.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/citySlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/citySlice.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/landing_links_dummy.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/landing_links_dummy.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,20 +58,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/belchushka/Документы/izilab_backend&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/belchushka/Документы/izilab_frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/belchushka/Документы/izilab_frontend/src/assets/icons",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "ts.external.directory.path": "/home/belchushka/Документы/izilab_frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/icons" />
@@ -117,7 +111,12 @@
       <workItem from="1656629030575" duration="9000" />
       <workItem from="1656629241919" duration="50000" />
       <workItem from="1656657761000" duration="14957000" />
-      <workItem from="1656681985603" duration="2730000" />
+      <workItem from="1656681985603" duration="3012000" />
+      <workItem from="1656685684171" duration="5000" />
+      <workItem from="1656869790132" duration="384000" />
+      <workItem from="1656872312599" duration="3573000" />
+      <workItem from="1656883627297" duration="2128000" />
+      <workItem from="1656935531780" duration="15503000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1656629282686</created>
@@ -126,7 +125,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656629282686</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="initial commit">
+      <created>1656685567870</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656685567870</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +151,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="backup" />
-    <option name="LAST_COMMIT_MESSAGE" value="backup" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

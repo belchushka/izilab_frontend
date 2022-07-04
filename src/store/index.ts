@@ -9,6 +9,17 @@ const store = configureStore({
         analysis: analysisSlice,
         city: citySlice
     }),
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                // Ignore these action types
+                ignoredActions: ['user/setCartDate'],
+                // Ignore these field paths in all actions
+                ignoredActionPaths: ['meta.arg', 'payload.timestamp'],
+                // Ignore these paths in the state
+                ignoredPaths: ['items.dates'],
+            },
+        }),
 })
 
 export default store

@@ -7,18 +7,20 @@ interface IModal {
     children: React.ReactNode,
     zIndex: number,
     hide: ()=>void,
+    showCross?: boolean
 }
 
-const Modal: React.FC<IModal> = ({className, children, hide, zIndex}) => {
+const Modal: React.FC<IModal> = ({className, children, hide, zIndex, showCross=true}) => {
     return (
         <div className={`${s.modal_wrapper}`} style={{
             zIndex,
             height: window.innerHeight + 'px',
         }}>
             <div className={`${s.modal_body} ${className}`}>
-                <div onClick={hide} className={s.modal_body_cross}>
+                {showCross && <div onClick={hide} className={s.modal_body_cross}>
                     <img src={Cross} alt=""/>
-                </div>
+                </div>}
+
                  {children}
             </div>
         </div>

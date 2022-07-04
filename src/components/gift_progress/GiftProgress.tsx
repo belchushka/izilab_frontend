@@ -11,7 +11,7 @@ const GiftProgress = () => {
     }, [cart])
     return (
         <div className={s.gift_body}>
-            {cart_amount == 0 ? <p>
+            {cart_amount < 0 ? <p>
                 Подарок уже в корзине! Перейдите в корзину
                 чтобы выбрать <span>бесплатный</span> анализ.
             </p> :  <p>

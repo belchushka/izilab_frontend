@@ -1,4 +1,5 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {AppState} from "../types";
 
 interface IInitialState {
     id:number | null,
@@ -33,5 +34,9 @@ const citySlice = createSlice({
 })
 
 export const {setOffices, setOffice, setCity} = citySlice.actions
+
+export const selectCartOfficeById = (id: number)=>(state: AppState)=>{
+    return state.city.offices.filter((el:any)=>el.id == id)[0]
+}
 
 export default citySlice.reducer

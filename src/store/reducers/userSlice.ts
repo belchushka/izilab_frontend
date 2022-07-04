@@ -13,7 +13,9 @@ const initialState: IInitialState = {
         gifts: [],
         semplings:[],
         price_with_stock: 0,
-        sempling_price: 0
+        sempling_price: 0,
+        office_id: null,
+        date: null
     }
 }
 
@@ -56,9 +58,15 @@ const userSlice = createSlice({
         setCartSemplingPrice(state, action) {
             state.cart.sempling_price = action.payload
         },
+        setCartOfficeId(state, action) {
+            state.cart.office_id = action.payload
+        },
+        setCartDate(state, action){
+            state.cart.date = action.payload
+        }
     }
 })
 
-export const {addAnalysis, removeAnalysis, setCartPrice, addCartGift,removeCartGift, setCartAnalysis,setCartSemplings, setCartSemplingPrice, setCartPriceWithStock} = userSlice.actions
+export const {addAnalysis, removeAnalysis, setCartPrice, addCartGift,removeCartGift, setCartAnalysis,setCartSemplings, setCartSemplingPrice, setCartPriceWithStock, setCartOfficeId, setCartDate} = userSlice.actions
 
 export default userSlice.reducer

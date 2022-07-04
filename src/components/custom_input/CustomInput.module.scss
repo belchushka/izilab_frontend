@@ -40,5 +40,22 @@
     transform: translateY(-50%);
     z-index: 2;
   }
+
+  &_calendar_icon {
+    height: 22px;
+    width: 22px;
+    cursor: pointer;
+  }
 }
 
+.calendar_input {
+  &_calendar_wrapper {
+    position: absolute;
+    top: calc(100% + 10px);
+    z-index: 1000;
+
+    &_calendar {
+
+    }
+  }
+}

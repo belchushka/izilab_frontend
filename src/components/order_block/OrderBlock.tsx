@@ -9,6 +9,7 @@ import s from "./OrderBlock.module.scss"
 import AnalysisSelectBlock from "../analysis_select_block/AnalysisSelectBlock";
 import CartBlock from "../cart_block/CartBlock";
 import NextStepContext from "../../contexts/NextStepContext";
+import PersonalInfoBlock from "../personal_info_block/PersonalInfoBlock";
 
 
 const OrderBlock = () => {
@@ -74,6 +75,7 @@ const OrderBlock = () => {
             }}>
                 {step == 0 &&  <AnalysisSelectBlock/>}
                 {step == 1 && <CartBlock/>}
+                {step == 2 && <PersonalInfoBlock/>}
             </NextStepContext.Provider>
 
 
