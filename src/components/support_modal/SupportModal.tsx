@@ -33,8 +33,8 @@ const SupportModal: React.FC<ISupportModal> = ({zIndex, hide}) => {
             <h4>Помощь в оформлении заказа</h4>
             <p>Мы свяжемся с Вами в WhatsApp/Telegram,
                 чтобы уточнить анализы и их стоимость</p>
-            <CustomInput error={nameError} setError={setNameError} className={s.modal_body_input} placeholder={"Как Вас зовут?"} onInput={(val) => setName(val)}/>
-            <CustomInput error={phoneError} setError={setPhoneError} className={s.modal_body_input} placeholder={"Ваш контактный телефон"}
+            <CustomInput value={name} error={nameError} setError={setNameError} className={s.modal_body_input} placeholder={"Как Вас зовут?"} onInput={(val) => setName(val)}/>
+            <CustomInput value={phone} error={phoneError} mask={"+7(999)999-99-99"} setError={setPhoneError} className={s.modal_body_input} placeholder={"Ваш контактный телефон"}
                          onInput={(val) => setPhone(val)}/>
             <div className={s.modal_body_button_wrapper}>
                 <CustomButton className={s.modal_body_button} type={"order"} onClick={sendRequest}>

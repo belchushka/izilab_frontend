@@ -14,8 +14,21 @@ export const getCategoryAnalysis: AppThunkAction = (params) => async (dispatch: 
     } catch (e: any) {
         if (e.response.status == 404) {
             dispatch(setAnalysisList([]))
-        }else{
+        } else {
             alert("Технические шоколадки ")
         }
+    }
+}
+
+export const searchAnalysis: AppThunkAction = (query) => async (dispatch: Dispatch) => {
+    try {
+        const data = await $host.get("/analysis/get_from_query", {
+            params: {
+                query
+            }
+        })
+        dispatch(setAnalysisList(data.data))
+    } catch (e: any) {
+        dispatch(setAnalysisList([]))
     }
 }

@@ -43,11 +43,11 @@
     }
     
     &_button {
-      background: #FFFFFF;
+      background: #FFFFFF !important;
       font-style: normal;
       font-weight: 400;
       font-size: 12px;
-      color: #FC4483;
+      color: #FC4483 !important;
       max-width: 120px !important;
       width: 100%;
       min-width: auto;
@@ -68,12 +68,12 @@
     }
 
     button {
-      background: #FC4483;
-      border: 1px solid #FC4483;
+      background: #FC4483 !important;
+      border: 1px solid #FC4483 !important;
       &:hover {
         box-shadow: none;
         background: #FC4483;
-        border: 1px solid white;
+        border: 1px solid white !important;
       }
       p {
         color: white !important;

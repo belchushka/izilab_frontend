@@ -5,6 +5,26 @@
     margin-top: 30px;
     padding: 0 30px;
 
+    &_text {
+      margin: auto;
+      max-width: 520px;
+      margin-top: 20px;
+      position: relative;
+      height: 20px;
+
+      p{
+        position: absolute;
+        bottom: 0;
+        &:nth-child(2) {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        &:nth-child(3) {
+          right:12px
+        }
+      }
+    }
+
     &_progress_step {
       background:  #AED9FF;
       width: 35px;

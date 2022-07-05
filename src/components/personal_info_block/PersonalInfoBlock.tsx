@@ -22,14 +22,14 @@ const PersonalInfoBlock = () => {
                 <CustomRadio onChange={()=>null} label={"Мужчина"} name={"sex"}/>
             </div>
             <div className={s.input_row}>
-                <CustomInput placeholder={"Фамилия"} onInput={()=>null} className={s.row_input}/>
-                <CustomInput placeholder={"Имя"} onInput={()=>null} className={s.row_input}/>
-                <CustomInput placeholder={"Отчество"} onInput={()=>null} className={s.row_input}/>
+                <CustomInput value={""} placeholder={"Фамилия"} onInput={()=>null} className={s.row_input}/>
+                <CustomInput value={""} placeholder={"Имя"} onInput={()=>null} className={s.row_input}/>
+                <CustomInput value={""} placeholder={"Отчество"} onInput={()=>null} className={s.row_input}/>
             </div>
             <div className="">
-                <CalendarInput placeholder={"Фамилия"} onInput={()=>null} containerClassName={s.expanded_input}/>
-                <CustomInput placeholder={"Номер телефона"} onInput={()=>null} className={s.expanded_input}/>
-                <CustomInput placeholder={"E-mail"} onInput={()=>null} className={s.expanded_input}/>
+                <CalendarInput value={""} placeholder={"Дата рождения"} mask={"99.99.9999"} onInput={()=>null} containerClassName={s.expanded_input}/>
+                <CustomInput value={""} placeholder={"Номер телефона"} mask={"+7(999)999-99-99"}  onInput={()=>null} className={s.expanded_input}/>
+                <CustomInput value={""} placeholder={"E-mail"} onInput={()=>null} className={s.expanded_input}/>
             </div>
 
             <div className={s.personal_info_radio}>
@@ -40,7 +40,7 @@ const PersonalInfoBlock = () => {
                 <CustomButton type={"order"} onClick={prevStep}>
                     <span>Вернуться в корзину</span>
                 </CustomButton>
-                <CustomButton type={"order"} onClick={()=>null}>
+                <CustomButton type={"order"} onClick={nextStep}>
                     <span>Оплатить {cart_price} P</span>
                 </CustomButton>
             </div>

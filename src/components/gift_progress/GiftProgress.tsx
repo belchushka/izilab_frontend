@@ -2,13 +2,13 @@ import React, {useMemo} from 'react';
 import {useTypedSelector} from "../../store/hooks";
 import s from "./GiftProgress.module.scss"
 import GiftIcon from "../../assets/icons/gift_icon.svg"
+import {cartTotalPrice} from "../../store/reducers/userSlice";
 
 const GiftProgress = () => {
-    const cart = useTypedSelector(state=>state.user.cart)
-    console.log(cart);
+    const cart_price = useTypedSelector(cartTotalPrice)
     const cart_amount = useMemo(() => {
-        return 5000 - cart.price_with_stock - cart.sempling_price
-    }, [cart])
+        return 5000 - cart_price
+    }, [cart_price])
     return (
         <div className={s.gift_body}>
             {cart_amount < 0 ? <p>

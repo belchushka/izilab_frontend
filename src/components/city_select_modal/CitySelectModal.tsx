@@ -56,7 +56,7 @@ const CitySelectModal: React.FC<ICitySelectModal> = ({hide}) => {
         }}>
             <ContainerComponent className={s.modal_body_container}>
                 <div className={s.modal_body_container_header}>
-                    <CustomInput className={s.modal_body_input} onInput={(val)=>setSearchValue(val)} placeholder={"Выберите город"}/>
+                    <CustomInput value={searchValue} className={s.modal_body_input} onInput={(val)=>setSearchValue(val)} placeholder={"Выберите город"}/>
                     <button onClick={hide}>
                         <img src={CityModalCross} alt=""/>
                     </button>

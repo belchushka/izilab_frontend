@@ -1,4 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
+import exp from "constants";
+import {AppState} from "../types";
 
 
 interface IInitialState {
@@ -12,10 +14,13 @@ const initialState: IInitialState = {
         analysis: [],
         gifts: [],
         semplings:[],
+        semple_preparations:[],
         price_with_stock: 0,
         sempling_price: 0,
+        semple_preparation_price: 0,
         office_id: null,
-        date: null
+        date: null,
+        not_performed_ids: []
     }
 }
 
@@ -23,6 +28,12 @@ const userSlice = createSlice({
     name: "user",
     initialState: initialState,
     reducers: {
+        setCart(state, action){
+          state.cart = {
+              ...state.cart,
+              ...action.payload
+          }
+        },
         addAnalysis(state, action) {
             const new_cart = state.cart.ids
             new_cart.push(action.payload)
@@ -67,6 +78,11 @@ const userSlice = createSlice({
     }
 })
 
-export const {addAnalysis, removeAnalysis, setCartPrice, addCartGift,removeCartGift, setCartAnalysis,setCartSemplings, setCartSemplingPrice, setCartPriceWithStock, setCartOfficeId, setCartDate} = userSlice.actions
+export const {addAnalysis, removeAnalysis, setCartPrice, addCartGift,removeCartGift, setCartAnalysis,setCartSemplings, setCartSemplingPrice, setCartPriceWithStock, setCartOfficeId, setCartDate, setCart} = userSlice.actions
+
+export const cartTotalPrice = (state:AppState)=>{
+    const cart = state.user.cart
+    return cart.sempling_price + cart.price_with_stock + cart.semple_preparation_price
+}
 
 export default userSlice.reducer

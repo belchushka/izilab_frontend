@@ -10,13 +10,14 @@ import AnalysisSelectBlock from "../analysis_select_block/AnalysisSelectBlock";
 import CartBlock from "../cart_block/CartBlock";
 import NextStepContext from "../../contexts/NextStepContext";
 import PersonalInfoBlock from "../personal_info_block/PersonalInfoBlock";
+import PaymentForm from "../payment_form/PaymentForm";
 
 
 const OrderBlock = () => {
     const [step, setStep] = useState<number>(0)
     const orderBlockRef=  useRef<HTMLDivElement>(null)
     const nextStep = ()=>{
-        if (step<2){
+        if (step<3){
             setStep(state=>state+1)
             if (orderBlockRef.current) orderBlockRef.current.scrollIntoView()
 
@@ -76,6 +77,7 @@ const OrderBlock = () => {
                 {step == 0 &&  <AnalysisSelectBlock/>}
                 {step == 1 && <CartBlock/>}
                 {step == 2 && <PersonalInfoBlock/>}
+                {step == 3 && <PaymentForm/>}
             </NextStepContext.Provider>
 
 

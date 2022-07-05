@@ -3,6 +3,8 @@ import s from "./CustomInput.module.scss"
 import CalendarIcon from "../../assets/icons/calendar.svg"
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import InputMask from 'react-input-mask';
+
 
 
 interface ICustomInput {
@@ -10,7 +12,9 @@ interface ICustomInput {
     className?: string,
     onInput: (val: string) => void,
     error?: boolean,
-    setError?: (val: boolean) => void | null
+    setError?: (val: boolean) => void | null,
+    mask?: string,
+    value: string
 }
 
 interface ISearchInput extends ICustomInput {
@@ -19,7 +23,7 @@ interface ISearchInput extends ICustomInput {
 }
 
 
-const CustomInput: React.FC<ICustomInput> = ({placeholder, className, onInput, error = false, setError = null}) => {
+const CustomInput: React.FC<ICustomInput> = ({placeholder, className, onInput, error = false, setError = null, mask="", value}) => {
     useEffect(() => {
         setTimeout(() => {
             if (setError) {
@@ -29,35 +33,38 @@ const CustomInput: React.FC<ICustomInput> = ({placeholder, className, onInput, e
     }, [error])
     return (
         <>
-            <input onChange={(ev) => onInput(ev.target.value)}
+            <InputMask value={value} mask={mask} onChange={(ev) => onInput(ev.target.value)}
                    className={`${s.input} ${className} ${error && s.input_error}`} placeholder={placeholder}
                    type="text"/>
         </>
     );
 };
 
-export const IconInput: React.FC<ISearchInput> = ({placeholder, className, onInput, containerClassName, icon}) => {
+export const IconInput: React.FC<ISearchInput> = ({placeholder, className, onInput, containerClassName, icon, value}) => {
     const [showIcon, setShowIcon] = useState(true)
     const inputHandler = useCallback((val: string) => {
-        if (val.trim().length > 0 && showIcon) {
-            setShowIcon(false)
-        } else if (val.trim().length == 0) {
-            setShowIcon(true)
-        }
         onInput(val)
     }, [showIcon])
+
+    useEffect(()=>{
+        if (value.trim().length > 0 && showIcon) {
+            setShowIcon(false)
+        } else if (value.trim().length == 0) {
+            setShowIcon(true)
+        }
+    }, [value])
 
     return (
         <div className={`${s.search_input_wrapper} ${containerClassName}`}>
             {showIcon && <img className={s.search_input_wrapper_search_icon} src={icon} alt={""}/>}
-            <CustomInput onInput={inputHandler}
+            <CustomInput value={value} onInput={inputHandler}
                          className={`${className} ${s.input_search} ${showIcon && s.input_search_active}`}
                          placeholder={placeholder}/>
         </div>
     );
 };
 
-export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string}> = ({placeholder, className, onInput, containerClassName}) => {
+export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string}> = ({placeholder, className, onInput, containerClassName, mask="", value}) => {
     const [showIcon, setShowIcon] = useState(true)
     const [showCalendar, setShowCalendar] = useState(false)
     const toggleCalendar = ()=>{
@@ -66,7 +73,7 @@ export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string
     return (
         <div className={`${s.search_input_wrapper} ${containerClassName}`}>
             <img onClick={toggleCalendar} className={`${s.search_input_wrapper_search_icon} ${s.search_input_wrapper_calendar_icon}` } src={CalendarIcon} alt={""}/>
-            <CustomInput onInput={()=>null}
+            <CustomInput value={value} mask={mask} onInput={()=>null}
                          className={`${className} ${s.input_search} ${showIcon && s.input_search_active}`}
                          placeholder={placeholder}/>
             {showCalendar &&

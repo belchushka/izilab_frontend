@@ -48,7 +48,13 @@ const customStyles = {
             }),
             ":hover": {
                 color: "#0187FC"
-            }
+            },
+            ...(state.data.disabled && {
+                color: "#87878780",
+                ":hover": {
+                    color: "#87878780"
+                },
+            })
         }
     }
 }
@@ -66,9 +72,10 @@ interface ICustomSelect {
     onSelect: (val) => void,
     onMenuOpen?: () => void,
     error?: boolean,
+    value: any
 }
 
-const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, onMenuOpen, error=false}) => {
+const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, onMenuOpen, error=false, value}) => {
 
     return (
         <Select
@@ -77,8 +84,10 @@ const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, on
             /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
             //@ts-ignore
             selectProps={{ error }}
+            isOptionDisabled={(option) => option.disabled}
             placeholder={"Выберите дату сдачи *"}
             onChange={onSelect}
+            defaultValue={value}
             styles={customStyles}
             noOptionsMessage={() => "Нет данных"}
             options={options}
