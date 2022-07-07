@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useCallback, useState} from 'react';
 import s from "./SupportModal.module.scss"
 import Modal from "../modal/Modal";
 import CustomButton from "../custom_button/CustomButton";
@@ -17,7 +17,7 @@ const SupportModal: React.FC<ISupportModal> = ({zIndex, hide}) => {
     const [phone, setPhone] = useState<string>("")
     const [phoneError, setPhoneError] = useState<boolean>(false)
     const dispatch = useTypedDispatch()
-    const sendRequest = () => {
+    const sendRequest = useCallback((name, phone) => {
         if (name.trim().length > 0 && phone.trim().length > 0) {
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
@@ -27,7 +27,7 @@ const SupportModal: React.FC<ISupportModal> = ({zIndex, hide}) => {
         if (phone.trim().length == 0) setPhoneError(true)
 
 
-    }
+    }, [])
     return (
         <Modal zIndex={zIndex} hide={hide} className={s.modal_body}>
             <h4>Помощь в оформлении заказа</h4>
@@ -37,7 +37,7 @@ const SupportModal: React.FC<ISupportModal> = ({zIndex, hide}) => {
             <CustomInput value={phone} error={phoneError} mask={"+7(999)999-99-99"} setError={setPhoneError} className={s.modal_body_input} placeholder={"Ваш контактный телефон"}
                          onInput={(val) => setPhone(val)}/>
             <div className={s.modal_body_button_wrapper}>
-                <CustomButton className={s.modal_body_button} type={"order"} onClick={sendRequest}>
+                <CustomButton className={s.modal_body_button} type={"order"} onClick={()=>sendRequest(name,phone)}>
                     <p>Отправить</p>
                 </CustomButton>
             </div>

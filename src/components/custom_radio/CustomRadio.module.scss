@@ -11,6 +11,11 @@
     align-items: center;
     border-radius: 50%;
     margin-right: 15px;
+    transition: .2s;
+
+    &_error {
+      border: 1px solid #FC4483 !important
+    }
 
 
     &:before {

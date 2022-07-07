@@ -43,6 +43,7 @@ export const countCartPrice: AppThunkAction = (cart, officeId, date) => async (d
             officeId,
             date
         })
+        console.log(data);
         const new_cart = {
             price: data.total_price,
             analysis: data.analysis,
@@ -51,7 +52,8 @@ export const countCartPrice: AppThunkAction = (cart, officeId, date) => async (d
             sempling_price:data.sempling_price,
             semple_preparation_price:data.semple_preparation_price,
             semple_preparations: data.semple_preparations,
-            not_performed_ids: data.not_performed_ids
+            not_performed_ids: data.not_performed_ids,
+            can_continue: data.can_continue
         }
 
         dispatch(setCart(new_cart))

@@ -19,4 +19,4 @@ const AnalysisModalCompound: React.FC<IAnalysisModalCompound> = ({className, dat
     );
 };
 
-export default AnalysisModalCompound;
+export default React.memo(AnalysisModalCompound);

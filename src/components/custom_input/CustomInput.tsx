@@ -25,11 +25,14 @@ interface ISearchInput extends ICustomInput {
 
 const CustomInput: React.FC<ICustomInput> = ({placeholder, className, onInput, error = false, setError = null, mask="", value}) => {
     useEffect(() => {
-        setTimeout(() => {
+       const timeout =  setTimeout(() => {
             if (setError) {
                 setError(false)
             }
         }, 2000)
+        return ()=>{
+           clearTimeout(timeout)
+        }
     }, [error])
     return (
         <>
@@ -64,7 +67,7 @@ export const IconInput: React.FC<ISearchInput> = ({placeholder, className, onInp
     );
 };
 
-export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string}> = ({placeholder, className, onInput, containerClassName, mask="", value}) => {
+export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string, onSelect: (val:any)=>void, calendarDate: any | null}> = ({placeholder, className, onInput, containerClassName, mask="", value,error,setError, onSelect, calendarDate}) => {
     const [showIcon, setShowIcon] = useState(true)
     const [showCalendar, setShowCalendar] = useState(false)
     const toggleCalendar = ()=>{
@@ -73,12 +76,12 @@ export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string
     return (
         <div className={`${s.search_input_wrapper} ${containerClassName}`}>
             <img onClick={toggleCalendar} className={`${s.search_input_wrapper_search_icon} ${s.search_input_wrapper_calendar_icon}` } src={CalendarIcon} alt={""}/>
-            <CustomInput value={value} mask={mask} onInput={()=>null}
+            <CustomInput error={error} setError={setError} value={value} mask={mask} onInput={onInput}
                          className={`${className} ${s.input_search} ${showIcon && s.input_search_active}`}
                          placeholder={placeholder}/>
             {showCalendar &&
                 <div className={s.calendar_input_calendar_wrapper}>
-                    <Calendar className={s.calendar_input_calendar_wrapper_calendar}/>
+                    <Calendar defaultValue={calendarDate || new Date()} onChange={onSelect} className={s.calendar_input_calendar_wrapper_calendar}/>
                 </div>
 
             }
@@ -86,5 +89,7 @@ export const CalendarInput: React.FC<ICustomInput & {containerClassName?: string
         </div>
     );
 };
+
+
 
 export default React.memo(CustomInput);

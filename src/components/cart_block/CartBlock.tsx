@@ -46,13 +46,10 @@ const CartBlock = () => {
     const semple_preparation_price = cart.semple_preparation_price
     const not_performed_ids = cart.not_performed_ids
     const dispatch = useTypedDispatch()
-    const allowNextStep = useMemo(() => {
-        return analysis.some(el => !not_performed_ids.includes(el.id))
-    }, [analysis, not_performed_ids])
+    const allowNextStep = cart.can_continue
     const dateSelectOptions = useMemo(() => {
         if (selectedOffice) {
             const closed_at = selectedOffice.closed_at.map(el => moment.default(el.timestamp))
-            console.log(closed_at);
             const date_arr = []
             for (let i = 0; i < 30; i++) {
                 const day = moment.default()
@@ -61,7 +58,6 @@ const CartBlock = () => {
                 const day_name = day.lang("ru").format("dddd")
                 const value = `${mounth_name}, ${day_name.slice(0, 1).toUpperCase() + day_name.slice(1)}`
                 const is_disabled = closed_at.some(el => day.isSame(el, 'day'))
-                console.log(day);
                 date_arr.push({
                     value: day.toDate().getTime(),
                     label: value,

@@ -1,13 +1,24 @@
 import {createSlice} from "@reduxjs/toolkit";
-import exp from "constants";
 import {AppState} from "../types";
 
 
 interface IInitialState {
+    name: string,
+    phone: string,
+    email: string,
+    birthday: string,
+    parent_name: string,
+    sex: string,
     cart: any
 }
 
 const initialState: IInitialState = {
+    name: null,
+    phone: null,
+    email: null,
+    birthday: null,
+    parent_name: null,
+    sex: null,
     cart: {
         ids: [],
         price: 0,
@@ -20,7 +31,8 @@ const initialState: IInitialState = {
         semple_preparation_price: 0,
         office_id: null,
         date: null,
-        not_performed_ids: []
+        not_performed_ids: [],
+        can_continue: true
     }
 }
 
@@ -34,10 +46,19 @@ const userSlice = createSlice({
               ...action.payload
           }
         },
+        setUserInfo(state, action){
+          return {
+              ...state,
+              ...action.payload
+          }
+        },
         addAnalysis(state, action) {
             const new_cart = state.cart.ids
             new_cart.push(action.payload)
             state.cart.ids = Array.from(new Set(new_cart))
+        },
+        clearCart(state, action){
+            return initialState
         },
         removeAnalysis(state, action) {
             state.cart.ids = state.cart.ids.filter((el: any) => {
@@ -78,7 +99,7 @@ const userSlice = createSlice({
     }
 })
 
-export const {addAnalysis, removeAnalysis, setCartPrice, addCartGift,removeCartGift, setCartAnalysis,setCartSemplings, setCartSemplingPrice, setCartPriceWithStock, setCartOfficeId, setCartDate, setCart} = userSlice.actions
+export const {addAnalysis, removeAnalysis, addCartGift,removeCartGift, setCartOfficeId, setCartDate, setCart, clearCart, setUserInfo} = userSlice.actions
 
 export const cartTotalPrice = (state:AppState)=>{
     const cart = state.user.cart

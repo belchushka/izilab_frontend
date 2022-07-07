@@ -10,7 +10,7 @@ import AnalysisSelectBlock from "../analysis_select_block/AnalysisSelectBlock";
 import CartBlock from "../cart_block/CartBlock";
 import NextStepContext from "../../contexts/NextStepContext";
 import PersonalInfoBlock from "../personal_info_block/PersonalInfoBlock";
-import PaymentForm from "../payment_form/PaymentForm";
+import PaymentForm from "../payment_form_block/PaymentFormBlock";
 
 
 const OrderBlock = () => {
@@ -72,7 +72,10 @@ const OrderBlock = () => {
                 nextStep: nextStep,
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 //@ts-ignore
-                prevStep: prevStep
+                prevStep: prevStep,
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+                setStep: setStep,
             }}>
                 {step == 0 &&  <AnalysisSelectBlock/>}
                 {step == 1 && <CartBlock/>}

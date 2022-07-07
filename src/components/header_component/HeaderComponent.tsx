@@ -29,7 +29,7 @@ const HeaderComponent: React.FC = () => {
                         {user_city.id && <p className={s.header_leftside_text}>
                             {city_offices.length} медофисов в городе {user_city.name}
                             <br/>
-                            <a href="">смотреть на карте</a>
+                            <a href="#services">смотреть на карте</a>
                         </p>}
 
                     </div>

@@ -7,22 +7,21 @@ import {GeolocationControl, Map, Placemark, YMaps, ZoomControl} from "react-yand
 import {useTypedSelector} from "../../store/hooks";
 
 interface IOfficeSelectMapModal {
-    hide: ()=>void,
-    onSelect:(id: number) => void
+    hide: () => void,
+    onSelect: (id: number) => void
 }
 
-const say_hi = ()=>alert("hi")
 
 const OfficeSelectMapModal: React.FC<IOfficeSelectMapModal> = ({hide, onSelect}) => {
-    const city_offices = useTypedSelector(state=>state.city.offices)
-    useEffect(()=>{
+    const city_offices = useTypedSelector(state => state.city.offices)
+    useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         window.setOffice = function (point) {
             onSelect(point)
             hide()
         }
-    },[])
+    }, [])
     return (
         <Modal zIndex={1000} hide={hide} className={s_upd.body} showCross={false}>
             <div className={`${s.modal_body_container_header} ${s_upd.body_header}`}>
@@ -34,15 +33,17 @@ const OfficeSelectMapModal: React.FC<IOfficeSelectMapModal> = ({hide, onSelect})
             <div className={s_upd.body_content}>
                 <YMaps>
                     <div>
-                        <Map className={s_upd.body_content_map} defaultState={{center: [55.78874 ,49.12214], zoom: 12 }}  width={"100%"}>
+                        <Map className={s_upd.body_content_map} defaultState={{center: [55.78874, 49.12214], zoom: 12}}
+                             width={"100%"}>
                             <ZoomControl/>
                             <GeolocationControl/>
-                            {city_offices?.map((el:any)=>{
-                                return <Placemark key={el.id} geometry={[el.latitude, el.longitude]}  properties = {{
-                                    balloonContent: `<button onclick="window.setOffice(${el.id})" class="custom_baloon">Выбрать офис</button>`,
+                            {city_offices?.map((el: any) => {
+                                return <Placemark key={el.id} geometry={[el.latitude, el.longitude]} properties={{
+                                    balloonContentHeader:`<h3 class="custom_baloon_title">${el.address}</h3>`,
+                                    balloonContentFooter:`<button onclick="window.setOffice(${el.id})" class="custom_baloon">Выбрать офис</button>`,
 
                                 }} options={{
-                                    iconLayout:"default#image",
+                                    iconLayout: "default#image",
                                     iconImageSize: [40, 40],
                                     iconShape: {
                                         type: 'Circle',

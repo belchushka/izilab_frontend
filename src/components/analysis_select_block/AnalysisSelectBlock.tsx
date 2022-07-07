@@ -30,12 +30,13 @@ const AnalysisSelectBlock = () => {
     const searchInputDebounce = useDebounce(searchInputValue, 200)
     const onSelectCategory = useCallback((categoryName: string, id: number) => {
         setSelectedCategory(id)
+        setSearchInputValue("")
+
     }, [])
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         dispatch(getCategoryAnalysis(categories[selectedCategory].category_name))
-        setSearchInputValue("")
     }, [selectedCategory])
 
     useEffect(() => {

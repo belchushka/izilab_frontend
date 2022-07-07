@@ -105,4 +105,4 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
     );
 };
 
-export default AnalysisInfoModal;
+export default React.memo(AnalysisInfoModal);

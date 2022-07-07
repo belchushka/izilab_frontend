@@ -10,7 +10,7 @@
   transition: .2s;
 
   &_error {
-    border: 1px solid #FC4483;
+    border: 1px solid #FC4483 !important;
   }
 
   &::-webkit-input-placeholder {

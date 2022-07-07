@@ -12,7 +12,7 @@ import { Scrollbar } from "swiper";
 
 interface ICategorySelectSlider {
     onSelectCategory:(name: string, id: number)=>void,
-    selectedCategory: number,
+    selectedCategory: number | null,
     categories: Array<{
         category_name:string,
         id: number,
@@ -83,7 +83,7 @@ const CategorySelectSlider: React.FC<ICategorySelectSlider> = ({onSelectCategory
             >
 
                 {categories?.map(el=>{
-                    return <SwiperSlide key={el.id}><CategorySelect  {...el} selected={el.id == selectedCategory} onSelect={onSelectCategory}/></SwiperSlide>
+                    return <SwiperSlide key={el.id}><CategorySelect  {...el} selected={ el.id == selectedCategory} onSelect={onSelectCategory}/></SwiperSlide>
                 })}
 
             </Swiper>
