@@ -1,35 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="80% done">
-      <change afterPath="$PROJECT_DIR$/src/assets/images/payment_error.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/assets/images/payment_success.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/payment_form/PaymentForm.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/payment_form_block/PamentFormBlock.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/payment_form_block/PaymentFormBlock.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/payment_status_modal/PaymentStatusModal.module.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/payment_status_modal/PaymentStatusModal.tsx" afterDir="false" />
+    <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_modal_compound/AnalysisModalCompound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_modal_compound/AnalysisModalCompound.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/category_select_slider/CategorySelectSlider.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/payment_form/PaymentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment_form/PaymentForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/payment_form_block/PaymentFormBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment_form_block/PaymentFormBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/NextStepContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/NextStepContext.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/userActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/userActions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,20 +49,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/belchushka/Документы/izilab_frontend/src/assets/images&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Color Scheme Font&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/belchushka/Документы/izilab_frontend/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/home/belchushka/Документы/izilab_backend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors.Color Scheme Font",
+    "ts.external.directory.path": "/home/belchushka/Документы/izilab_frontend/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/assets/images" />
@@ -143,7 +125,9 @@
       <workItem from="1657190535346" duration="1328000" />
       <workItem from="1657192182750" duration="1193000" />
       <workItem from="1657196021534" duration="2120000" />
-      <workItem from="1657199475328" duration="1481000" />
+      <workItem from="1657199475328" duration="2673000" />
+      <workItem from="1657203917199" duration="639000" />
+      <workItem from="1657205140006" duration="6616000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1656629282686</created>
@@ -173,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657039017241</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="initial commit">
+      <created>1657202094193</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1657202094193</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -192,8 +183,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="backup" />
-    <MESSAGE value="initial commit" />
     <MESSAGE value="80% done" />
-    <option name="LAST_COMMIT_MESSAGE" value="80% done" />
+    <MESSAGE value="initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
   </component>
 </project>

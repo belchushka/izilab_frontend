@@ -81,15 +81,15 @@ const AnalysisSelectBlock = () => {
                                 })}
 
                             </div>
-                            {(analysisList.length > 0 && searchInputDebounce.trim()=="") &&
-                                <>
-                                    <div>
-                                        <p className={s.block_wrapper_analysis_list_show_more}>Посмотреть еще</p>
-                                    </div>
-                                    <GiftProgress/>
-                                </>
+                            {/*{(analysisList.length > 0 && searchInputDebounce.trim()=="") &&*/}
+                            {/*    <>*/}
+                            {/*        <div>*/}
+                            {/*            <p className={s.block_wrapper_analysis_list_show_more}>Посмотреть еще</p>*/}
+                            {/*        </div>*/}
+                            {/*        <GiftProgress/>*/}
+                            {/*    </>*/}
 
-                            }
+                            {/*}*/}
                             {cart_ids.length > 0 && <div className={s.block_wrapper_next_step}>
                                 <CustomButton onClick={nextStep} type={"order"}>
                                     <span>Перейти в корзину ({cart_ids.length}) {cart_price} Р</span>

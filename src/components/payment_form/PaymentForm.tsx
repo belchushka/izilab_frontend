@@ -44,4 +44,4 @@ const PaymentForm: React.FC<IPaymentForm> = ({confirmation_token, setPaymentStat
     );
 };
 
-export default React.memo(PaymentForm);
+export default PaymentForm;

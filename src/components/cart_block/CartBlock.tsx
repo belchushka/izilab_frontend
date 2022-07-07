@@ -40,6 +40,8 @@ const CartBlock = () => {
     const price = cart.price
     const price_with_stock = cart.price_with_stock
     const cart_date = cart.date
+    const alerts = cart.alerts
+    const piece_alerts = cart.piece_alerts
     const semplings = cart.semplings
     const sempling_price = cart.sempling_price
     const semple_preparations = cart.semple_preparations
@@ -59,7 +61,7 @@ const CartBlock = () => {
                 const value = `${mounth_name}, ${day_name.slice(0, 1).toUpperCase() + day_name.slice(1)}`
                 const is_disabled = closed_at.some(el => day.isSame(el, 'day'))
                 date_arr.push({
-                    value: day.toDate().getTime(),
+                    value: day.format("DD/MM/YYYY"),
                     label: value,
                     disabled: is_disabled
                 })
@@ -71,8 +73,8 @@ const CartBlock = () => {
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        dispatch(countCartPrice(cart.ids, cart.office_id, new Date()))
-    }, [cart.ids, cart.office_id])
+        dispatch(countCartPrice(cart.ids, cart.office_id, cart_date?.value||null))
+    }, [cart.ids, cart.office_id ,cart_date])
 
     const onOfficeSelectHandler = (id: number) => {
         dispatch(setCartOfficeId(id))
@@ -208,6 +210,14 @@ const CartBlock = () => {
                                                   value={cart_date}
                                                   options={dateSelectOptions} className={s.custom_select}/>
                                 </div>
+                                <div className={s.alerts}>
+                                    {alerts?.map(el => {
+                                        return <p key={el}>{el}</p>
+                                    })}
+                                    {piece_alerts?.map(el => {
+                                        return <p key={el}>{el}</p>
+                                    })}
+                                </div>
                                 <div className={`${s.cart_sections_section_block} ${s.order_details}`}>
                                     <h4>Ваш заказ</h4>
                                     <div className={s.order_details_list}>
@@ -245,6 +255,7 @@ const CartBlock = () => {
                                 </div>
                             </div>
                         </div>
+
                         <div className={s.buttons}>
                             <CustomButton type={"order"} onClick={prevStep}>
                                 <span>Вернуться в каталог</span>
