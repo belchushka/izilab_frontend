@@ -48,17 +48,18 @@
 
 .cities_list {
   margin-top: 20px;
-  max-width: 60%;
   display: flex;
-  flex-wrap: wrap;
-  margin-left: -20px;
+  flex-flow: column wrap;
+  overflow: auto;
+  align-content: flex-start;
+  max-height: 200px;
+  margin-left: -70px;
   @include adaptive("xsm"){
     max-width: 100%;
     width: 100%;
   }
   p {
-    width: calc(100% / 4 - 20px);
-    margin-left: 20px;
+    margin-left: 70px;
     margin-top: 20px;
     font-style: normal;
     font-weight: 600;

@@ -8,10 +8,11 @@ import {sendSupportRequest} from "../../store/actions/userActions";
 
 interface ISupportModal {
     zIndex: number,
-    hide: () => void
+    hide: () => void,
+    isVisible: boolean
 }
 
-const SupportModal: React.FC<ISupportModal> = ({zIndex, hide}) => {
+const SupportModal: React.FC<ISupportModal> = ({zIndex, hide, isVisible}) => {
     const [name, setName] = useState<string>("")
     const [nameError, setNameError] = useState<boolean>(false)
     const [phone, setPhone] = useState<string>("")
@@ -29,7 +30,7 @@ const SupportModal: React.FC<ISupportModal> = ({zIndex, hide}) => {
 
     }, [])
     return (
-        <Modal zIndex={zIndex} hide={hide} className={s.modal_body}>
+        <Modal isVisible={isVisible} zIndex={zIndex} hide={hide} className={s.modal_body}>
             <h4>Помощь в оформлении заказа</h4>
             <p>Мы свяжемся с Вами в WhatsApp/Telegram,
                 чтобы уточнить анализы и их стоимость</p>

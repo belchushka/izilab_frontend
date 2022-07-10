@@ -4,7 +4,7 @@
   margin-top: 30px;
 
   &_container {
-    @include adaptive("sm"){
+    @include adaptive("sm") {
       max-width: 780px;
       padding: 0 20px;
     }
@@ -15,9 +15,10 @@
   display: flex;
   align-items: center;
 
-  @include adaptive("xxsm"){
+  @include adaptive("xxsm") {
     justify-content: space-between;
   }
+
   &_title {
     font-family: 'Arial';
     font-style: normal;
@@ -27,11 +28,10 @@
     color: #414770;
 
 
-
-    @include adaptive("xxsm"){
+    @include adaptive("xxsm") {
       font-size: 22px;
       white-space: nowrap;
-      color:#0187FC
+      color: #0187FC
     }
   }
 
@@ -45,7 +45,7 @@
     color: #414770;
     margin-left: 25px;
     cursor: pointer;
-    @include adaptive("xxsm"){
+    @include adaptive("xxsm") {
       margin-left: 0;
       white-space: nowrap;
     }
@@ -56,18 +56,21 @@
   width: 100%;
   display: flex;
   margin-top: 25px;
-  @include adaptive("xsm"){
+  @include adaptive("xsm") {
     flex-wrap: wrap;
 
   }
+
   &_section {
     width: 50%;
 
-    @include adaptive("xsm"){
+    @include adaptive("xsm") {
       width: 100%;
     }
+
     &_analysis {
       margin-top: 10px;
+
       &_list {
         position: absolute;
         top: 0;
@@ -77,18 +80,19 @@
         overflow-y: auto;
         padding-right: 15px;
 
-        @include adaptive("xsm"){
+        @include adaptive("xsm") {
           position: static;
           height: 60vh;
         }
       }
     }
+
     &:first-child {
       position: relative;
       align-self: stretch;
       margin-right: 15px;
 
-      @include adaptive("xsm"){
+      @include adaptive("xsm") {
         margin-right: 0;
         margin-bottom: 20px;
       }
@@ -103,7 +107,7 @@
       margin-left: -20px;
       flex-wrap: wrap;
 
-      @include adaptive("sm"){
+      @include adaptive("sm") {
         margin-left: -10px;
       }
     }
@@ -159,7 +163,7 @@
 
 
       &_stock {
-        color:#0187FC !important;
+        color: #0187FC !important;
       }
 
       p {
@@ -184,11 +188,13 @@
         &_price {
           display: flex;
           align-items: center;
+
           p {
             font-weight: 600;
             font-size: 20px;
             color: #423A3A;
           }
+
           span {
             font-family: 'Arial';
             font-style: normal;
@@ -218,7 +224,7 @@
   display: flex;
   justify-content: space-between;
 
-  @include adaptive("xsm"){
+  @include adaptive("xsm") {
     flex-direction: column;
     align-items: center;
   }
@@ -237,8 +243,8 @@
       color: #414770;
     }
 
-    &:nth-child(2){
-      @include adaptive("xsm"){
+    &:nth-child(2) {
+      @include adaptive("xsm") {
         margin-top: 10px;
       }
     }
@@ -284,10 +290,17 @@
   }
 
   &_office {
+    position: relative;
+
     &_btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 20px;
       display: flex;
       align-items: center;
       cursor: pointer;
+
       span {
         font-style: normal;
         font-weight: 400;
@@ -295,6 +308,7 @@
         line-height: 14px;
         color: #0187FC
       }
+
       img {
         margin-left: 5px;
         max-width: 15px;
@@ -305,6 +319,7 @@
   &_city {
     border: none;
     padding: 0;
+
     &_text {
       width: 50%;
       border: 1px solid #44566673;
@@ -314,6 +329,7 @@
       align-items: center;
       padding-left: 15px;
     }
+
     &_btn {
       width: 50%;
       background: #0187FC;
@@ -331,6 +347,7 @@
 
 .alerts {
   margin-top: 10px;
+
   p {
     color: #FC4483;
     margin-top: 5px;

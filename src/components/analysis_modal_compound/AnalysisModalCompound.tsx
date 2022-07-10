@@ -12,7 +12,7 @@ const AnalysisModalCompound: React.FC<IAnalysisModalCompound> = ({className, dat
 
     return (
         <div>
-            {showModal &&  <AnalysisInfoModal showBottom={false} hide={()=>setShowModal(false)} data={data} zIndex={100001}/>}
+            {showModal &&  <AnalysisInfoModal isVisible={showModal} showBottom={false} hide={()=>setShowModal(false)} data={data} zIndex={100001}/>}
 
             <p onClick={()=>setShowModal(true)} className={`${className} ${s.text}`}>{data.analysis_data.name}</p>
         </div>

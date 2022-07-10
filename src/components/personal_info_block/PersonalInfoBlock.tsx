@@ -40,8 +40,8 @@ const PersonalInfoBlock = () => {
     const [accept, setAccept] = useState(null)
     const [acceptError, setAcceptError] = useState(false)
     const showParentInfo = useMemo(() => {
-        const data = moment.default(birthday, "DD.MM.YYYY").utc(true)
-        if (data.clone().toString() !== "Invalid date") {
+        const data = moment.default(birthday, "DD.MM.YYYY", true).utc(true)
+        if (data.isValid()) {
             if (moment.default().utc(true).diff(data, "year") >= 16) {
                 return false
             }
@@ -69,8 +69,8 @@ const PersonalInfoBlock = () => {
         }
 
         if (parentBirthday.length == 10) {
-            const data = moment.default(parentBirthday, "DD.MM.YYYY").utc(true)
-            if (data.clone().toString() !== "Invalid date") {
+            const data = moment.default(parentBirthday, "DD.MM.YYYY", true).utc(true)
+            if (data.isValid()) {
                 if (moment.default().utc(true).diff(data, "year") < 16) {
                     setParentBirthdayError(true)
                     return;

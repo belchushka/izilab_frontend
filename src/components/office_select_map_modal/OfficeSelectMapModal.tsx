@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import Modal from "../modal/Modal";
 import s from "../city_select_modal/CitySelectModal.module.scss";
 import CityModalCross from "../../assets/icons/city_modal_cross_lg.svg";
@@ -8,25 +8,32 @@ import {useTypedSelector} from "../../store/hooks";
 
 interface IOfficeSelectMapModal {
     hide: () => void,
-    onSelect: (id: number) => void
+    onSelect: (id: number) => void,
+    isVisible: boolean
 }
 
 
-const OfficeSelectMapModal: React.FC<IOfficeSelectMapModal> = ({hide, onSelect}) => {
+const OfficeSelectMapModal: React.FC<IOfficeSelectMapModal> = ({hide, onSelect, isVisible}) => {
+    const [isVisibleLocal, setIsVisibleLocal] = useState(isVisible)
     const city_offices = useTypedSelector(state => state.city.offices)
+    const ModalRef = useRef(null)
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
         window.setOffice = function (point) {
             onSelect(point)
-            hide()
+            ModalRef.current.handleHide()
+            setTimeout(()=>{
+                hide()
+            }, 100)
         }
+
     }, [])
     return (
-        <Modal zIndex={1000} hide={hide} className={s_upd.body} showCross={false}>
+        <Modal ref={ModalRef} isVisible={isVisibleLocal} zIndex={1000} hide={hide} className={s_upd.body} showCross={false}>
             <div className={`${s.modal_body_container_header} ${s_upd.body_header}`}>
                 <h4>Выбор медицинского офиса</h4>
-                <button onClick={hide}>
+                <button onClick={()=> ModalRef.current.handleHide()}>
                     <img src={CityModalCross} alt=""/>
                 </button>
             </div>

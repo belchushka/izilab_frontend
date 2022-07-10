@@ -34,7 +34,7 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
     }
     return (
         <>
-            {showModal && <AnalysisInfoModal toggle_cart={onAddClickHandler} in_cart={cart.indexOf(data.id) !== -1} stock_endtime={stock_endtime} zIndex={10000} data={data} hide={()=>setShowModal(false)}/>}
+            {showModal && <AnalysisInfoModal isVisible={showModal} toggle_cart={onAddClickHandler} in_cart={cart.indexOf(data.id) !== -1} stock_endtime={stock_endtime} zIndex={10000} data={data} hide={()=>setShowModal(false)}/>}
 
             <div onClick={()=>{setShowModal(true)}} className={`${className} ${s.card} ${type == "stock" && s.card_stock}`} style={{
                 background: type == "stock" ? `linear-gradient(90deg, #${data.analysis_data.gradient_1} 0%, #${data.analysis_data.gradient_2} 100%)` : "#E8F4FF"

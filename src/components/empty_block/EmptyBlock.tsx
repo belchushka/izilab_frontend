@@ -14,7 +14,7 @@ const EmptyBlock: React.FC<IEmptyBlock> = ({img, onButtonClick, subtitle, title}
     const [showSupport, setShowSupport] = useState(false)
     return (
         <>
-            {showSupport && <SupportModal zIndex={10000} hide={()=>setShowSupport(false)}/>}
+            {showSupport && <SupportModal isVisible={showSupport} zIndex={10000} hide={()=>setShowSupport(false)}/>}
             <div className={s.body}>
                 <h4>{title ? title : "Ничего не найдено"}</h4>
                 {subtitle && <p>{subtitle}</p>}

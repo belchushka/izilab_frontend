@@ -5,10 +5,10 @@ import CustomButton from "../custom_button/CustomButton";
 interface IPaymentForm {
     confirmation_token: string | null,
     setPaymentStatus: (val: string) => void,
-    onSuccess: ()=>void
+    onRender: ()=>void
 }
 
-const PaymentForm: React.FC<IPaymentForm> = ({confirmation_token, setPaymentStatus, onSuccess}) => {
+const PaymentForm: React.FC<IPaymentForm> = ({confirmation_token, setPaymentStatus, onRender}) => {
     const rendered = useRef(false)
     useEffect(() => {
         if (confirmation_token !== null && !rendered.current) {
@@ -22,20 +22,10 @@ const PaymentForm: React.FC<IPaymentForm> = ({confirmation_token, setPaymentStat
                 },
             });
 
-            checkout.on('complete', () => {
-                setPaymentStatus('succeeded')
-                checkout.destroy();
-                onSuccess()
-            })
-
-            checkout.on('fail', () => {
-                setPaymentStatus('rejected')
-                checkout.destroy();
-                checkout.render('payment-form')
-            })
-
             //Отображение платежной формы в контейнере
-            checkout.render('payment-form')
+            checkout.render('payment-form').then(()=>{
+                onRender()
+            })
             rendered.current = true
         }
     }, [confirmation_token])

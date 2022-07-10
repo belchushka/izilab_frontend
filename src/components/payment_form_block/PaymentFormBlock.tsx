@@ -17,19 +17,8 @@ const PaymentFormBlock = () => {
     const [paymentToken, setPaymentToken] = useState<string | null>(null)
     const [paymentStatus, setPaymentStatus] = useState<string>('pending')
     const [transactionKey, setTransactionKey] = useState(null)
+    const checkInterval = useRef(null)
     const dispatch = useTypedDispatch()
-    const showModalType = useMemo(() => {
-        switch (paymentStatus) {
-            case 'pending':
-                return null
-            case 'succeeded':
-                return 'success'
-            case 'rejected':
-                return 'error'
-            default:
-                return null
-        }
-    }, [paymentStatus])
     const create_payment = async () => {
         try {
             const data = {
@@ -43,8 +32,8 @@ const PaymentFormBlock = () => {
                     },
                 },
                 name: user.name,
-                parent_name: user.parent_name,
-                parent_birthday: user.parent_birthday,
+                parent_name: user.parent_name.trim().length==0 ? null : user.parent_name,
+                parent_birthday: user.parent_birthday.trim().length==0 ? null : user.parent_birthday,
                 email: user.email,
                 birthday: user.birthday,
                 phone: user.phone,
@@ -56,6 +45,7 @@ const PaymentFormBlock = () => {
             setTransactionKey(payment_data.data.transaction.key)
             setPaymentToken(payment_data.data.confirmation.confirmation_token)
             payment_id.current = payment_data.data.id
+
         } catch (e) {
             setPaymentStatus("rejected")
         }
@@ -64,6 +54,21 @@ const PaymentFormBlock = () => {
     useEffect(() => {
         create_payment()
     }, [])
+
+    const onFormRender = () => {
+        checkInterval.current = setInterval(async () => {
+            const data = await $host.get('/user/transaction_status', {
+                params: {
+                    key: transactionKey
+                }
+            })
+            const status = data.data.status
+            setPaymentStatus(status)
+            if (status != "pending") {
+                clearInterval(checkInterval.current)
+            }
+        }, 5000)
+    }
 
     const succesHandler = () => {
         dispatch(clearCart(''))
@@ -81,14 +86,28 @@ const PaymentFormBlock = () => {
             transaction_key: transactionKey
         })
     }
+
+    const showModalType = useMemo(() => {
+        switch (paymentStatus) {
+            case 'pending':
+                return null
+            case 'succeeded':
+                onSuccess()
+                return 'success'
+            case 'rejected':
+                return 'error'
+            default:
+                return null
+        }
+    }, [paymentStatus])
     return (
         <ContainerComponent>
-            {showModalType == "success" && <PaymentStatusModal type={'success'} onClick={succesHandler}/>}
-            {showModalType == "error" && <PaymentStatusModal type={'error'} onClick={errorHandler}/>}
+            {showModalType == "success" && <PaymentStatusModal isVisible={showModalType == "success"} type={'success'} onClick={succesHandler}/>}
+            {showModalType == "error" && <PaymentStatusModal isVisible={showModalType == "error"} type={'error'} onClick={errorHandler}/>}
             {transactionKey &&
                 <p className={s.transaction_key}>Ключь вашего заказа: {transactionKey} <br/> Запомните его на случай
                     технических неполадок</p>}
-            <PaymentForm onSuccess={onSuccess} setPaymentStatus={setPaymentStatus} confirmation_token={paymentToken}/>
+            <PaymentForm onRender={onFormRender} setPaymentStatus={setPaymentStatus} confirmation_token={paymentToken}/>
             <div className={s.button}>
                 <CustomButton onClick={prevStep} type={'order'}>
                     <p>Отмена</p>

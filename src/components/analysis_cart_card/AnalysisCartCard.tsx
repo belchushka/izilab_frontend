@@ -26,7 +26,7 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
     }
     return (
         <>
-            {showModal && <AnalysisInfoModal toggle_cart={onAddClickHandler} type={"cart"} zIndex={10000} data={data} hide={() => setShowModal(false)}/>}
+            {showModal && <AnalysisInfoModal isVisible={showModal} toggle_cart={onAddClickHandler} type={"cart"} zIndex={10000} data={data} hide={() => setShowModal(false)}/>}
             <div className="">
                 <div onClick={() => {
                     setShowModal(true)

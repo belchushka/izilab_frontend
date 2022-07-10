@@ -42,7 +42,7 @@ const HeaderLocation: React.FC<IHeaderLocation> = ({user_city}) => {
     }
     return (
         <>
-            {showModal && <CitySelectModal hide={()=>setShowModal(false)}/>}
+            {showModal && <CitySelectModal isVisible={showModal} hide={()=>setShowModal(false)}/>}
             <div className={s.location_wrapper}>
                 <div className={s.location_info}>
                     <img src={MapPointer} alt=""/>

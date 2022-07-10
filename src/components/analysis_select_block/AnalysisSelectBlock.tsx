@@ -58,7 +58,7 @@ const AnalysisSelectBlock = () => {
     },[searchInputDebounce])
     return (
         <>
-            {showSupport && <SupportModal zIndex={10000} hide={() => setShowSupport(false)}/>}
+            {showSupport && <SupportModal isVisible={showSupport} zIndex={10000} hide={() => setShowSupport(false)}/>}
 
             <div className={s.block_wrapper}>
                 <ContainerComponent>

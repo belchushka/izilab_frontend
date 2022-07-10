@@ -12,13 +12,14 @@ interface IAnalysisModal {
     stock_endtime?: string|number,
     in_cart?: boolean,
     toggle_cart?: MouseEventHandler<HTMLButtonElement>,
-    type?: "default" | "cart"
+    type?: "default" | "cart",
+    isVisible: boolean
 }
 
-const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBottom=true, toggle_cart, stock_endtime,type="default", in_cart}) => {
+const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBottom=true, toggle_cart, stock_endtime,type="default", in_cart, isVisible}) => {
 
     return (
-        <Modal zIndex={zIndex} hide={hide} className={s.modal_body}>
+        <Modal isVisible={isVisible} zIndex={zIndex} hide={hide} className={s.modal_body}>
             <h5 className={s.modal_body_title}>{data.analysis_data.name}</h5>
             <p className={s.modal_body_code}>Артикул: {data.code}</p>
 

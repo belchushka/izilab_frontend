@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
 import s from "./CartBlock.module.scss"
 import ContainerComponent from "../container_component/ContainerComponent";
 import AnalysisCartCard from "../analysis_cart_card/AnalysisCartCard";
@@ -15,7 +15,7 @@ import SemplingCard from "../sempling_card/SemplingCard";
 import CitySelectModal from "../city_select_modal/CitySelectModal";
 import MapPointer from "../../assets/icons/map_pointer.svg"
 import OfficeSelectMapModal from "../office_select_map_modal/OfficeSelectMapModal";
-import {cartTotalPrice, setCartDate, setCartOfficeId} from "../../store/reducers/userSlice";
+import {cartTotalPrice, clearCart, setCartDate, setCartOfficeId} from "../../store/reducers/userSlice";
 import {selectCartOfficeById} from "../../store/reducers/citySlice";
 import CustomSelect from "../custom_select/CustomSelect";
 import * as moment from "moment"
@@ -70,17 +70,26 @@ const CartBlock = () => {
         }
         return []
     }, [selectedOffice])
+    const officeSelectOptions = useMemo(() => {
+        return city.offices.map((el:any)=>{
+            return {
+                value: el.id,
+                label: el.address,
+                disabled: false
+            }
+        })
+    }, [city])
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        dispatch(countCartPrice(cart.ids, cart.office_id, cart_date?.value||null))
-    }, [cart.ids, cart.office_id ,cart_date])
+        dispatch(countCartPrice(cart.ids, cart.office_id, cart_date?.value || null))
+    }, [cart.ids, cart.office_id, cart_date])
 
-    const onOfficeSelectHandler = (id: number) => {
+    const onOfficeSelectHandler = useCallback((id: number) => {
         dispatch(setCartOfficeId(id))
-    }
+    }, [])
 
-    const checkNextStep = () => {
+    const checkNextStep = useCallback(() => {
         if (analysis.length == 0 || city.id == null || !selectedOffice?.id || !cart_date) {
             city.id == null && setCityError(true)
             !selectedOffice?.id && setOfficeError(true)
@@ -93,9 +102,9 @@ const CartBlock = () => {
             return
         }
         nextStep()
-    }
+    }, [analysis, city, selectedOffice, cart_date])
 
-    const showOfficeModalCheck = () => {
+    const showOfficeModalCheck = useCallback(() => {
         if (city.id == null) {
             setCityError(true)
             setTimeout(() => {
@@ -104,9 +113,19 @@ const CartBlock = () => {
             return
         }
         setShowOfficeModal(true)
-    }
+    }, [city.id])
 
-    const showSelectDateCheck = () => {
+    const showSelectOfficeCheck = useCallback(() => {
+        if (city.id == null) {
+            setCityError(true)
+            setTimeout(() => {
+                setCityError(false)
+            }, 2000)
+            return
+        }
+    }, [city.id])
+
+    const showSelectDateCheck = useCallback(() => {
         if (!selectedOffice?.id) {
             setOfficeError(true)
             setTimeout(() => {
@@ -114,22 +133,31 @@ const CartBlock = () => {
             }, 2000)
             return
         }
-    }
+    }, [selectedOffice])
 
-    const selectDate = (val) => {
+    const selectDate = useCallback((val) => {
         dispatch(setCartDate(val))
-    }
+    }, [])
+
+    const selectOffice = useCallback((val) => {
+        dispatch(setCartOfficeId(val.value))
+    }, [])
+
+    const clearCartClick = useCallback(() => {
+        dispatch(clearCart(""))
+    }, [])
     return (
         <>
-            {showCityModal && <CitySelectModal hide={() => setShowCityModal(false)}/>}
+            {showCityModal && <CitySelectModal isVisible={showCityModal} hide={() => setShowCityModal(false)}/>}
             {showOfficeModal &&
-                <OfficeSelectMapModal onSelect={onOfficeSelectHandler} hide={() => setShowOfficeModal(false)}/>}
+                <OfficeSelectMapModal isVisible={showOfficeModal} onSelect={onOfficeSelectHandler}
+                                      hide={() => setShowOfficeModal(false)}/>}
             <div className={s.cart_wrapper}>
                 {analysis.length > 0 ?
                     <ContainerComponent className={s.cart_wrapper_container}>
                         <div className={s.cart_header}>
                             <h3 className={s.cart_header_title}>{analysis.length} товара в корзине</h3>
-                            <p className={s.cart_header_clear}>очистить корзину</p>
+                            <p className={s.cart_header_clear} onClick={clearCartClick}>очистить корзину</p>
                         </div>
                         <div className={s.cart_sections}>
                             <div className={`${s.cart_sections_section}`}>
@@ -194,18 +222,25 @@ const CartBlock = () => {
                                             <p>Изменить</p>
                                         </div>
                                     </div>
-                                    <div
-                                        className={`${s.cart_select} ${s.cart_select_office} ${selectedOffice?.id && s.cart_select_selected} ${officeError && s.cart_select_error}`}>
-                                        <p>
-                                            {selectedOffice ? selectedOffice.address : 'Выберите адрес *'}
-                                        </p>
+                                    <div className={`${s.cart_select_office}`}>
+                                        <CustomSelect placeholder={'Выберите адрес *'} error={officeError}
+                                                      onMenuOpen={showSelectOfficeCheck}
+                                                      onSelect={selectOffice}
+                                                      value={selectedOffice && {
+                                                          label: selectedOffice.address,
+                                                          value: selectedOffice.id,
+                                                          disabled:false
+                                                      }}
+                                                      options={officeSelectOptions} className={s.custom_select}/>
                                         <div className={s.cart_select_office_btn} onClick={showOfficeModalCheck}>
                                             <span>Указать на карте</span>
                                             <img src={MapPointer} alt=""/>
                                         </div>
                                     </div>
 
-                                    <CustomSelect error={dateError} onMenuOpen={showSelectDateCheck}
+
+                                    <CustomSelect placeholder={'Выберите дату сдачи *'} error={dateError}
+                                                  onMenuOpen={showSelectDateCheck}
                                                   onSelect={selectDate}
                                                   value={cart_date}
                                                   options={dateSelectOptions} className={s.custom_select}/>

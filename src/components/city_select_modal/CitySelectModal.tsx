@@ -7,15 +7,18 @@ import LetterSelectComponent from "../letter_select_component/LetterSelectCompon
 import {$host} from "../../http";
 import {useTypedDispatch} from "../../store/hooks";
 import {setCurrentCity} from "../../store/actions/cityActions";
+import {useDebounce} from "../../hooks/useDebounce";
 
 interface ICitySelectModal {
-    hide: () => void
+    hide: () => void,
+    isVisible: boolean
 }
 
-const CitySelectModal: React.FC<ICitySelectModal> = ({hide}) => {
+const CitySelectModal: React.FC<ICitySelectModal> = ({hide, isVisible}) => {
     const [selectedLetterId, setSelectedLetterId] = useState<number | null>(0)
     const [selectedValue, setSelectedValue] = useState("")
     const [searchValue, setSearchValue] = useState("")
+    const debouncedSearchValue = useDebounce(searchValue, 200)
     const [cities, setCities] = useState([])
     const dispatch = useTypedDispatch()
     const fetch = async (value: string) => {
@@ -26,25 +29,25 @@ const CitySelectModal: React.FC<ICitySelectModal> = ({hide}) => {
                 }
             })
             setCities(data)
-        }catch (e) {
+        } catch (e) {
             console.log(e);
         }
     }
     useEffect(() => {
-        if (searchValue.length!=0){
+        if (debouncedSearchValue.length != 0) {
             setSelectedLetterId(null)
             fetch(searchValue)
             return
         }
-        if (selectedLetterId == 0){
+        if (selectedLetterId == 0) {
             fetch("''")
-        }else{
+        } else {
             fetch(selectedValue)
 
         }
-    }, [selectedValue, selectedLetterId, searchValue])
+    }, [selectedValue, selectedLetterId, debouncedSearchValue])
 
-    const setCityId = (city: any)=>{
+    const setCityId = (city: any) => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         dispatch(setCurrentCity(city))
@@ -56,7 +59,8 @@ const CitySelectModal: React.FC<ICitySelectModal> = ({hide}) => {
         }}>
             <ContainerComponent className={s.modal_body_container}>
                 <div className={s.modal_body_container_header}>
-                    <CustomInput value={searchValue} className={s.modal_body_input} onInput={(val)=>setSearchValue(val)} placeholder={"Выберите город"}/>
+                    <CustomInput value={searchValue} className={s.modal_body_input}
+                                 onInput={(val) => setSearchValue(val)} placeholder={"Выберите город"}/>
                     <button onClick={hide}>
                         <img src={CityModalCross} alt=""/>
                     </button>
@@ -69,10 +73,11 @@ const CitySelectModal: React.FC<ICitySelectModal> = ({hide}) => {
                         }}/>
                     </div>
                     <div className={s.cities_list}>
-                        {cities.length == 0 && <p style={{width:"auto"}}>Ничего не найдено</p>}
-                        {cities?.map((el:any, num)=>{
-                            return <p onClick={()=>setCityId(el)} key={num}>{el.name}</p>
+                        {cities.length == 0 && <p style={{width: "auto"}}>Ничего не найдено</p>}
+                        {cities?.map((el: any, num) => {
+                            return <p onClick={() => setCityId(el)} key={num}>{el.name}</p>
                         })}
+
                     </div>
                 </div>
 

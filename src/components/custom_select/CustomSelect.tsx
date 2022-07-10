@@ -72,10 +72,11 @@ interface ICustomSelect {
     onSelect: (val) => void,
     onMenuOpen?: () => void,
     error?: boolean,
-    value: any
+    value: any,
+    placeholder: string
 }
 
-const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, onMenuOpen, error=false, value}) => {
+const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, onMenuOpen, error=false, value, placeholder}) => {
 
     return (
         <Select
@@ -85,7 +86,7 @@ const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, on
             //@ts-ignore
             selectProps={{ error }}
             isOptionDisabled={(option) => option.disabled}
-            placeholder={"Выберите дату сдачи *"}
+            placeholder={placeholder}
             onChange={onSelect}
             defaultValue={value}
             styles={customStyles}

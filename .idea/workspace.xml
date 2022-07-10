@@ -3,15 +3,27 @@
   <component name="ChangeListManager">
     <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="initial commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_modal_compound/AnalysisModalCompound.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_modal_compound/AnalysisModalCompound.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/city_select_modal/CitySelectModal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/custom_select/CustomSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_select/CustomSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/empty_block/EmptyBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/empty_block/EmptyBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/modal/Modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/Modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/payment_form/PaymentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment_form/PaymentForm.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/payment_form_block/PaymentFormBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment_form_block/PaymentFormBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/payment_status_modal/PaymentStatusModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/payment_status_modal/PaymentStatusModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/actions/userActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/userActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/userSlice.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +45,8 @@
     <setting file="file://$PROJECT_DIR$/src/components/custom_radio/CustomRadio.module.scss" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/custom_radio/CustomRadio.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/payment_form/PaymentForm.tsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/payment_form_block/PaymentFormBlock.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/payment_status_modal/PaymentStatusModal.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/components/support_modal/SupportModal.module.scss" root0="FORCE_HIGHLIGHTING" />
@@ -54,7 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/belchushka/Документы/izilab_backend",
+    "last_opened_file_path": "/home/belchushka/Документы/izilab_frontend",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
@@ -127,7 +141,14 @@
       <workItem from="1657196021534" duration="2120000" />
       <workItem from="1657199475328" duration="2673000" />
       <workItem from="1657203917199" duration="639000" />
-      <workItem from="1657205140006" duration="6616000" />
+      <workItem from="1657205140006" duration="6680000" />
+      <workItem from="1657217814043" duration="135000" />
+      <workItem from="1657220023068" duration="2082000" />
+      <workItem from="1657223508252" duration="667000" />
+      <workItem from="1657225091921" duration="2068000" />
+      <workItem from="1657281624112" duration="1472000" />
+      <workItem from="1657283624223" duration="3049000" />
+      <workItem from="1657292224429" duration="4758000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1656629282686</created>
@@ -164,7 +185,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657202094193</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="initial commit">
+      <created>1657213428213</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1657213428213</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
