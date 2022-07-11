@@ -36,7 +36,7 @@ const CustomInput: React.FC<ICustomInput> = ({placeholder, className, onInput, e
     }, [error])
     return (
         <>
-            <InputMask value={value} mask={mask} onChange={(ev) => onInput(ev.target.value)}
+            <InputMask maskChar={""} value={value} mask={mask} onChange={(ev) => onInput(ev.target.value)}
                    className={`${s.input} ${className} ${error && s.input_error}`} placeholder={placeholder}
                    type="text"/>
         </>

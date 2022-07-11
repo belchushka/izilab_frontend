@@ -1,4 +1,4 @@
-import React, {MouseEventHandler, useMemo} from 'react';
+import React, {MouseEventHandler} from 'react';
 import s from "./AnalysisInfoModal.module.scss"
 import AnalysisModalCompound from "../analysis_modal_compound/AnalysisModalCompound";
 import Modal from "../modal/Modal";
@@ -78,13 +78,13 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
                                 <p>{in_cart ? "Удалить из корзины": "Заказать"}</p>
                                 <p>{!in_cart &&
                                     <>
-                                        <span className={s.modal_body_button_stock_price}>{data.analysis_data.has_stock && `${data.analysis_data.prev_stock_price} P`}</span>
+                                        <span className={s.modal_body_button_stock_price}>{(data.analysis_data.has_stock && data.analysis_data.price !== data.analysis_data.prev_stock_price) && `${data.analysis_data.prev_stock_price} P`}</span>
                                         {data.analysis_data.price} P
                                     </>
                                 }
                                 </p>
                             </CustomButton>
-                            {data.analysis_data.has_stock && <p className={s.modal_body_button_stock}>до конца акции осталось {stock_endtime} дней</p>}
+                            {(data.analysis_data.has_stock && stock_endtime!=0) && <p className={s.modal_body_button_stock}>до конца акции осталось {stock_endtime}</p>}
                         </>
                     }
                     {type == "cart" &&

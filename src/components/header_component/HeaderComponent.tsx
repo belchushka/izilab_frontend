@@ -10,6 +10,7 @@ import MenuContext from "../../contexts/MenuContext";
 import links from "../../utils/landing_links_dummy"
 import HeaderLocation from "../header_location/HeaderLocation";
 import {useTypedSelector} from "../../store/hooks";
+import {declOfNum} from "../../utils/decl_of_num";
 
 
 const HeaderComponent: React.FC = () => {
@@ -27,7 +28,7 @@ const HeaderComponent: React.FC = () => {
                     <div className={s.header_leftside}>
                         <img className={s.header_leftside_logo} src={Logo} alt=""/>
                         {user_city.id && <p className={s.header_leftside_text}>
-                            {city_offices.length} медофисов в городе {user_city.name}
+                            {city_offices.length} {declOfNum(city_offices.length, ['медофис','медофиса','медофисов'])} в городе {user_city.name}
                             <br/>
                             <a href="#services">смотреть на карте</a>
                         </p>}

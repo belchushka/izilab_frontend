@@ -13,6 +13,7 @@ export const sendSupportRequest: AppThunkAction = (name, phone) => async (dispat
             name: name,
             phone: phone
         })
+        return
     } catch (e) {
         return e
     }

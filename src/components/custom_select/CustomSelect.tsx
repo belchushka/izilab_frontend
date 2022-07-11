@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import Select from "react-select";
 
 
@@ -88,7 +88,7 @@ const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, on
             isOptionDisabled={(option) => option.disabled}
             placeholder={placeholder}
             onChange={onSelect}
-            defaultValue={value}
+            value={value}
             styles={customStyles}
             noOptionsMessage={() => "Нет данных"}
             options={options}

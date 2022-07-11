@@ -22,6 +22,8 @@ import * as moment from "moment"
 import 'moment/locale/ru'
 import EmptyBlock from "../empty_block/EmptyBlock";
 import EmptyCart from "../../assets/images/empty_cart.png"
+import check_card_type from "../../utils/check_card_type";
+import {declOfNum} from "../../utils/decl_of_num";
 
 
 const CartBlock = () => {
@@ -87,6 +89,7 @@ const CartBlock = () => {
 
     const onOfficeSelectHandler = useCallback((id: number) => {
         dispatch(setCartOfficeId(id))
+        dispatch(setCartDate(null))
     }, [])
 
     const checkNextStep = useCallback(() => {
@@ -141,6 +144,8 @@ const CartBlock = () => {
 
     const selectOffice = useCallback((val) => {
         dispatch(setCartOfficeId(val.value))
+        dispatch(setCartDate(null))
+
     }, [])
 
     const clearCartClick = useCallback(() => {
@@ -156,29 +161,32 @@ const CartBlock = () => {
                 {analysis.length > 0 ?
                     <ContainerComponent className={s.cart_wrapper_container}>
                         <div className={s.cart_header}>
-                            <h3 className={s.cart_header_title}>{analysis.length} товара в корзине</h3>
+                            <h3 className={s.cart_header_title}>{analysis.length} {declOfNum(analysis.length, ['товар', 'товара', 'товаров'])} в корзине</h3>
                             <p className={s.cart_header_clear} onClick={clearCartClick}>очистить корзину</p>
                         </div>
                         <div className={s.cart_sections}>
                             <div className={`${s.cart_sections_section}`}>
                                 <div className={`${s.cart_sections_section_analysis_list} custom_scroll`}>
-                                    {analysis?.map((el: any) =>
-                                        <div key={el.id}
-                                             className={`${el.only_in_complex_with_parent.length > 0 && s.analysis_wrapper}`}>
+                                    {analysis?.map((el: any) =>{
+                                        const analysis: any = check_card_type(el)
+                                        return <div key={el.id}
+                                                    className={`${el.only_in_complex_with_parent.length > 0 && s.analysis_wrapper}`}>
                                             <AnalysisCartCard selectOffice={() => showOfficeModalCheck()}
                                                               notPerformed={not_performed_ids.includes(el.id)}
-                                                              type={el.analysis_data.has_stock ? "stock" : "default"}
-                                                              data={el}
+                                                              type={analysis.type}
+                                                              data={analysis.analysis}
                                                               className={s.cart_sections_section_analysis}/>
                                             {el.only_in_complex_with_parent?.map((child: any) => {
+                                                const analysis_child: any = check_card_type(child)
                                                 return <AnalysisCartCard selectOffice={() => showOfficeModalCheck()}
                                                                          notPerformed={not_performed_ids.includes(el.id)}
                                                                          showButton={false} key={child.id}
-                                                                         type={child.analysis_data.has_stock ? "stock" : "default"}
-                                                                         data={child}
+                                                                         type={analysis_child.type}
+                                                                         data={analysis_child.analysis}
                                                                          className={s.cart_sections_section_analysis}/>
                                             })}
                                         </div>
+                                    }
                                     )}
                                     {semplings.map((el: any) => {
                                         return <SemplingCard key={el.id} title={"Взятие биоматериала"}

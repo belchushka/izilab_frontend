@@ -17,6 +17,7 @@ import {cartTotalPrice} from "../../store/reducers/userSlice";
 import EmptyBlock from "../empty_block/EmptyBlock";
 import EmptySearch from "../../assets/images/empty_search.png"
 import {useDebounce} from "../../hooks/useDebounce";
+import check_card_type from "../../utils/check_card_type";
 
 const AnalysisSelectBlock = () => {
     const [selectedCategory, setSelectedCategory] = useState(0)
@@ -75,21 +76,27 @@ const AnalysisSelectBlock = () => {
                         <>
                             <div className={s.block_wrapper_analysis_list}>
                                 {analysisList.map((el: any) => {
-                                    return <AnalysisCard type={el.analysis_data.has_stock ? "stock" : "default"}
+                                    const analysis: any = check_card_type(el)
+                                    return <AnalysisCard type={analysis.type}
                                                          key={el.id}
-                                                         data={el} className={s.block_wrapper_analysis_list_card}/>
+                                                         data={analysis.analysis} className={s.block_wrapper_analysis_list_card}/>
                                 })}
 
                             </div>
-                            {/*{(analysisList.length > 0 && searchInputDebounce.trim()=="") &&*/}
-                            {/*    <>*/}
-                            {/*        <div>*/}
-                            {/*            <p className={s.block_wrapper_analysis_list_show_more}>Посмотреть еще</p>*/}
-                            {/*        </div>*/}
-                            {/*        <GiftProgress/>*/}
-                            {/*    </>*/}
+                            {(analysisList.length > 0) &&
+                                <>
+                                    {/*<div>*/}
+                                    {/*    <p className={s.block_wrapper_analysis_list_show_more}>Посмотреть еще</p>*/}
+                                    {/*</div>*/}
+                                    <div style={{
+                                        marginTop:"50px"
+                                    }}>
+                                        <GiftProgress/>
 
-                            {/*}*/}
+                                    </div>
+                                </>
+
+                            }
                             {cart_ids.length > 0 && <div className={s.block_wrapper_next_step}>
                                 <CustomButton onClick={nextStep} type={"order"}>
                                     <span>Перейти в корзину ({cart_ids.length}) {cart_price} Р</span>

@@ -37,7 +37,7 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
                     </div>
                     <div className={s.left_side}>
                         <div className={s.left_side_text}>
-                            {data.analysis_data.has_stock ?
+                            {type == 'stock'?
                                 <p><span>{data.analysis_data.prev_stock_price}</span> {data.analysis_data.price}P</p> :
                                 <p>{data.analysis_data.price}P</p>}
                             <span>до {data.analysis_data.execution_period} дней</span>
