@@ -26,21 +26,40 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
             <div className={`${s.modal_body_compound} custom_scroll ${!data.is_complex && s.modal_body_description_block}`}>
                 {data.is_complex ?
                     <>
-                        <p className={s.modal_body_section_title}>
-                            Состав:
-                        </p>
-                        <div className={s.modal_body_compound_list}>
-                            {data.complex_compound.map((el:any)=>{
-                                return <AnalysisModalCompound key={el.analysis_data.name} data={el} className={s.modal_body_section_title}/>
-                            })}
+                        {
+                            data.complex_compound.length > 0 && <>
+                                <p className={s.modal_body_section_title}>
+                                    Состав:
+                                </p>
+                                <div className={s.modal_body_compound_list}>
+                                    {data.complex_compound.map((el:any)=>{
+                                        return <AnalysisModalCompound key={el.analysis_data.name} data={el} className={s.modal_body_section_title}/>
+                                    })}
 
-                        </div>
+                                </div>
+                            </>
+                        }
                     </>
                     :
                     <>
-                        <p className={s.modal_body_section_title}>{data.analysis_data.description}</p>
-                        <p className={`${s.modal_body_section_title} ${s.modal_body_section_title_description}`}>Подготовка к исследованию</p>
-                        <p className={s.modal_body_section_title}>{data.analysis_data.preparation}</p>
+                        {data.analysis_data.description && <p className={s.modal_body_section_title}>{data.analysis_data.description}</p>}
+                        {data.analysis_data.preparation &&
+                            <>
+                                <p className={`${s.modal_body_section_title} ${s.modal_body_section_title_description}`}>Подготовка к исследованию</p>
+                                <p className={s.modal_body_section_title}>
+                                    {data.analysis_data.preparation}
+                                </p>
+                            </>
+                           }
+                        {data.analysis_data.prescribing &&
+                            <>
+                                <p className={`${s.modal_body_section_title} ${s.modal_body_section_title_description}`}>Показания к назначению</p>
+                                <p className={s.modal_body_section_title}>
+                                    {data.analysis_data.prescribing}
+                                </p>
+                            </>
+                        }
+
                     </>
 
                 }
@@ -50,10 +69,16 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
             {/*{!data.is_complex &&*/}
             {/*    // <p className={s.modal_body_section_title}>{data.analysis_data.preparation}</p>*/}
             {/*}*/}
+            {
+                data.analysis_data.additional_conditions!=="нет" && <div className={s.alert_body}>
+                    <p className={s.alert}>{data.analysis_data.additional_conditions}</p>
+                </div>
+            }
+
 
             <div className={s.modal_body_info}>
                 <div className="">
-                    <p className={s.modal_body_section_title}>
+                    <p className={`${s.modal_body_section_title} ${s.bottom_info_title}`}>
                         Биоматериал:
                     </p>
                     <p className={s.modal_body_section_title}>
@@ -62,7 +87,7 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
                 </div>
 
                 <div className="">
-                    <p className={s.modal_body_section_title}>
+                    <p className={`${s.modal_body_section_title} ${s.bottom_info_title}`}>
                         Срок готовности:
                     </p>
                     <p className={s.modal_body_section_title}>
@@ -70,8 +95,13 @@ const AnalysisInfoModal: React.FC<IAnalysisModal> = ({data, hide, zIndex, showBo
                     </p>
                 </div>
             </div>
+            {
+                (data.analysis_data.anounsment) && <div className={s.piece_alert_body}>
+                    <p className={s.piece_alert}>{data.analysis_data.anounsment}</p>
+                </div>
+            }
             {showBottom &&
-                <div className={`${s.modal_body_button} ${type=="cart" && s.modal_body_button_cart}`}>
+                <div className={`${s.modal_body_button} ${type=="cart" && s.modal_body_button_cart} ${data.analysis_data.anounsment && s.anounsment_btn}`}>
                     {type == "default" &&
                         <>
                             <CustomButton type={"order"} onClick={toggle_cart} className={`${in_cart ? s.modal_body_button_center : s.modal_body_button_between}`}>

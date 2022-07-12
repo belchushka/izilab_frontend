@@ -25,7 +25,10 @@ const HeaderLocation: React.FC<IHeaderLocation> = ({user_city}) => {
         const city_suggestion = await dispatch(getCitySuggestion())
         if (city_suggestion!==null){
             setSuggestion(city_suggestion);
-            setShowSuggestion(true)
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            dispatch(setCurrentCity(city_suggestion))
+            // setShowSuggestion(true)
         }
     }
     useEffect(()=>{
@@ -46,7 +49,8 @@ const HeaderLocation: React.FC<IHeaderLocation> = ({user_city}) => {
             <div className={s.location_wrapper}>
                 <div className={s.location_info}>
                     <img src={MapPointer} alt=""/>
-                    <p className={s.location_info_city} onClick={()=>setShowModal(true)}>
+                    {/*onClick={()=>setShowModal(true)}*/}
+                    <p className={s.location_info_city} >
                         {user_city.name ? user_city.name : "Не определено"}
                     </p>
                 </div>

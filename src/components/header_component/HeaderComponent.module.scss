@@ -21,6 +21,12 @@
     display: flex;
     align-items: center;
   };
+
+  &_leftside_text {
+    @include adaptive("xsm"){
+      display: none;
+    }
+  }
   &_leftside_text, &_rightside_text {
     font-size: 15px;
     @include adaptive("sm"){

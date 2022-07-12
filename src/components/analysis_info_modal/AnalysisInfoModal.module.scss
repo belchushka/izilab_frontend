@@ -92,7 +92,6 @@
   &_section_title {
     font-family: 'Roboto', Areal,sans-serif;
     font-style: normal;
-    font-weight: 400;
     font-size: 14px;
     line-height: 20px;
     /* identical to box height, or 143% */
@@ -131,14 +130,16 @@
     overflow-y: auto ;
     &_list {
       margin-top: 8px;
-
-      p{
-        display: block;
-        margin-top: 2px;
-        font-weight: 300;
-        color:#423A3A;
-        cursor: pointer;
+      & > div {
+       & >  p{
+          display: block;
+          margin-top: 2px;
+          font-weight: 300;
+         color: #423A3A;
+          cursor: pointer;
+        }
       }
+
     }
   }
 
@@ -146,4 +147,41 @@
     max-height: 220px;
   }
 
+}
+
+.bottom_info_title {
+  font-weight: 600 !important;
+}
+
+.alert_body {
+  margin: 17px 0;
+  p {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+    /* identical to box height, or 143% */
+
+
+    color: #FC4483;
+  }
+}
+
+.piece_alert_body {
+  margin-top: 25px;
+  p {
+    text-align: center;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 20px;
+    /* identical to box height, or 167% */
+
+
+    color: #0187FC;
+  }
+}
+
+.anounsment_btn {
+  margin-top: 10px;
 }

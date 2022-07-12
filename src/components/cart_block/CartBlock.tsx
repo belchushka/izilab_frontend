@@ -58,13 +58,17 @@ const CartBlock = () => {
             for (let i = 0; i < 30; i++) {
                 const day = moment.default()
                 day.add({days: i})
+                const dayNumber = day.isoWeekday()
+                const {from, to} = selectedOffice.schedule.find(el=> el.type == 'additional' && el.day==dayNumber)
+                const fromLocal = moment.default(from).add(selectedOffice.utc).format("HH:mm")
+                const toLocal = moment.default(to).add(selectedOffice.utc).format("HH:mm")
                 const mounth_name = day.lang("ru").format("D MMMM")
                 const day_name = day.lang("ru").format("dddd")
                 const value = `${mounth_name}, ${day_name.slice(0, 1).toUpperCase() + day_name.slice(1)}`
                 const is_disabled = closed_at.some(el => day.isSame(el, 'day'))
                 date_arr.push({
                     value: day.format("DD/MM/YYYY"),
-                    label: value,
+                    label: `${value} (Режим работы: с ${fromLocal} до ${toLocal})`,
                     disabled: is_disabled
                 })
             }
@@ -201,7 +205,7 @@ const CartBlock = () => {
                             </div>
                             <div className={s.cart_sections_section}>
                                 <div className={s.cart_sections_section_block}>
-                                    {price_with_stock + sempling_price >= 5000 ?
+                                    {price_with_stock + sempling_price + semple_preparation_price >= 5000 ?
                                         <h5 className={s.cart_sections_section_block_title}>Выберите ваш подарок</h5>
                                         :
                                         <p className={s.cart_sections_section_block_title_error}>Добавьте анализы

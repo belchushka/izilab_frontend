@@ -132,6 +132,8 @@ const PersonalInfoBlock = () => {
                              onInput={setName} className={s.row_input}/>
                 <CustomInput error={secondnameError} setError={setSecondNameError} value={secondname}
                              placeholder={"Отчество"} onInput={setSecondName} className={s.row_input}/>
+
+                <input type={'date'}/>
             </div>
             <div className="">
                 <CalendarInput calendarDate={currentDate} value={birthday} onSelect={onCalendarSelect}

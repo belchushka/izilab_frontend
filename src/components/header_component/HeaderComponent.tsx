@@ -11,12 +11,13 @@ import links from "../../utils/landing_links_dummy"
 import HeaderLocation from "../header_location/HeaderLocation";
 import {useTypedSelector} from "../../store/hooks";
 import {declOfNum} from "../../utils/decl_of_num";
+import {useNavigate} from "react-router-dom";
 
 
 const HeaderComponent: React.FC = () => {
     const user_city = useTypedSelector(state=>state.city)
     const city_offices = useTypedSelector(state=>state.city.offices)
-
+    const navigation = useNavigate()
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
 
@@ -44,7 +45,7 @@ const HeaderComponent: React.FC = () => {
                                 <br/>
                                 <strong>с 7:00 до 22:00</strong>
                             </p>
-                            <CustomButton className={s.header_rightside_button} onClick={()=>null} color={"pink"} type={"landing"}>
+                            <CustomButton className={s.header_rightside_button} onClick={()=>navigation('order')} color={"pink"} type={"landing"}>
                                 <span>Записаться онлайн</span>
                             </CustomButton>
 

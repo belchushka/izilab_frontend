@@ -2,20 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="100% perfection">
-      <change afterPath="$PROJECT_DIR$/src/utils/check_card_type.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/decl_of_num.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/Screamer.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ScreamerComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/screens/Order.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_cart_card/AnalysisCartCard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_info_modal/AnalysisInfoModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_select/CustomSelect.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_select/CustomSelect.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.module.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/support_modal/SupportModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/support_modal/SupportModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/userActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/userActions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_location/HeaderLocation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/navigation_component/NavigationComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation_component/NavigationComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/react-app-env.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/react-app-env.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/actions/cityActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/cityActions.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +61,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/belchushka/Документы/izilab_frontend&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/belchushka/Документы/izilab_frontend/src/assets&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
@@ -71,6 +72,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets" />
       <recent name="$PROJECT_DIR$/src/assets/images" />
       <recent name="$PROJECT_DIR$/src/assets/icons" />
     </key>
@@ -142,7 +144,9 @@
       <workItem from="1657283624223" duration="3049000" />
       <workItem from="1657292224429" duration="4758000" />
       <workItem from="1657467721223" duration="9543000" />
-      <workItem from="1657531958984" duration="779000" />
+      <workItem from="1657531958984" duration="796000" />
+      <workItem from="1657542700057" duration="7268000" />
+      <workItem from="1657616265788" duration="2390000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1656629282686</created>
@@ -193,7 +197,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657467762056</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="100% perfection">
+      <created>1657537262861</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1657537262862</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
