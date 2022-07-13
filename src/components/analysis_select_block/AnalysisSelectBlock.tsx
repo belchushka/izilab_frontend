@@ -5,7 +5,7 @@ import s from "./AnalysisSelectBlock.module.scss";
 import CategorySelectSlider from "../category_select_slider/CategorySelectSlider";
 import AnalysisCard from "../analysis_card/AnalysisCard";
 import {useTypedDispatch, useTypedSelector} from "../../store/hooks";
-import {getCategoryAnalysis, searchAnalysis} from "../../store/actions/analysisActions";
+import {getCategoryAnalysis, loadMore, searchAnalysis, loadMoreSearch} from "../../store/actions/analysisActions";
 import GiftProgress from "../gift_progress/GiftProgress";
 import {categories} from "../../utils/categories_dummy";
 import NextStepContext from "../../contexts/NextStepContext";
@@ -21,7 +21,10 @@ import check_card_type from "../../utils/check_card_type";
 
 const AnalysisSelectBlock = () => {
     const [selectedCategory, setSelectedCategory] = useState(0)
+    const analysisPages = useTypedSelector(state => state.analysis.pages)
+    const [page, setPage] = useState(0)
     const [showSupport, setShowSupport] = useState(false)
+    const [showSlider, setShowSlider] = useState(true)
     const {nextStep} = useContext(NextStepContext)
     const dispatch = useTypedDispatch()
     const analysisList = useTypedSelector(state => state.analysis.analysis_list)
@@ -32,13 +35,29 @@ const AnalysisSelectBlock = () => {
     const onSelectCategory = useCallback((categoryName: string, id: number) => {
         setSelectedCategory(id)
         setSearchInputValue("")
-
     }, [])
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         dispatch(getCategoryAnalysis(categories[selectedCategory].category_name))
+        setPage(0)
     }, [selectedCategory])
+
+    useEffect(() => {
+        if (page !== 0) {
+
+            if (searchInputDebounce.trim() !== "") {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                dispatch(loadMoreSearch(searchInputDebounce.trim(), page))
+            } else {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
+                dispatch(loadMore(categories[selectedCategory].category_name, page))
+            }
+        }
+    }, [page])
+
 
     useEffect(() => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -46,29 +65,39 @@ const AnalysisSelectBlock = () => {
         dispatch(countCartPriceWithoutData(cart_ids))
     }, [cart_ids])
 
-    useEffect(()=>{
-            if (searchInputDebounce.trim()!==""){
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                dispatch(searchAnalysis(searchInputDebounce.trim()))
-            }else{
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                dispatch(getCategoryAnalysis(categories[selectedCategory].category_name))
+    useEffect(() => {
+        if (searchInputDebounce.trim() !== "") {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            dispatch(searchAnalysis(searchInputDebounce.trim(), page))
+            if (showSlider) {
+                setShowSlider(false)
             }
-    },[searchInputDebounce])
+        } else {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            dispatch(getCategoryAnalysis(categories[selectedCategory].category_name))
+            setShowSlider(true)
+        }
+    }, [searchInputDebounce])
     return (
         <>
             {showSupport && <SupportModal isVisible={showSupport} zIndex={10000} hide={() => setShowSupport(false)}/>}
 
             <div className={s.block_wrapper}>
                 <ContainerComponent>
-                    <IconInput value={searchInputValue} containerClassName={s.block_wrapper_search_input} icon={Search} onInput={(val) => setSearchInputValue(val)}
+                    <IconInput value={searchInputValue} containerClassName={s.block_wrapper_search_input}
+                               className={s.block_wrapper_search_input_inner} icon={Search}
+                               onInput={(val) => {
+                                   setPage(0)
+                                   setSearchInputValue(val)
+                               }}
                                placeholder={"Введите название анализа"}/>
                 </ContainerComponent>
                 <ContainerComponent className={s.block_wrapper_category_slider}>
-                    <CategorySelectSlider categories={categories} onSelectCategory={onSelectCategory}
-                                          selectedCategory={searchInputDebounce.trim()=="" ? selectedCategory : null}/>
+                    {showSlider && <CategorySelectSlider categories={categories} onSelectCategory={onSelectCategory}
+                                                         selectedCategory={searchInputDebounce.trim() == "" ? selectedCategory : null}/>}
+
                 </ContainerComponent>
 
                 <ContainerComponent>
@@ -79,17 +108,19 @@ const AnalysisSelectBlock = () => {
                                     const analysis: any = check_card_type(el)
                                     return <AnalysisCard type={analysis.type}
                                                          key={el.id}
-                                                         data={analysis.analysis} className={s.block_wrapper_analysis_list_card}/>
+                                                         data={analysis.analysis}
+                                                         className={s.block_wrapper_analysis_list_card}/>
                                 })}
 
                             </div>
                             {(analysisList.length > 0) &&
                                 <>
-                                    {/*<div>*/}
-                                    {/*    <p className={s.block_wrapper_analysis_list_show_more}>Посмотреть еще</p>*/}
-                                    {/*</div>*/}
+                                    {analysisPages - 1 > page && <div onClick={() => setPage(state => state + 1)}>
+                                        <p className={s.block_wrapper_analysis_list_show_more}>Посмотреть еще</p>
+                                    </div>}
+
                                     <div style={{
-                                        marginTop:"50px"
+                                        marginTop: "50px"
                                     }}>
                                         <GiftProgress/>
 
@@ -107,7 +138,7 @@ const AnalysisSelectBlock = () => {
                         </>
                         :
                         <EmptyBlock subtitle={"Пожалуйста, повторите поиск \n" +
-                            "с иным запросом."} img={EmptySearch} onButtonClick={() => setSelectedCategory(0)}/>
+                            "с иным запросом."} img={EmptySearch} onButtonClick={() => setSearchInputValue("")}/>
                     }
 
                 </ContainerComponent>

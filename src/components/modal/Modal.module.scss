@@ -1,3 +1,5 @@
+@import "../../styles/mixin";
+
 .modal_wrapper {
   position: fixed;
   top: 0;
@@ -8,6 +10,9 @@
   justify-content: center;
   align-items: center;
   padding: 0 20px;
+  @include adaptive("xsm"){
+    padding: 0;
+  }
 }
 
 .modal_body {
@@ -16,6 +21,12 @@
   padding-bottom: 55px;
   border-radius: 7px;
   width: 100%;
+
+  @include adaptive("xsm"){
+   max-height: unset !important;
+    height: 100%;
+    border-radius: 0;
+  }
 
   &_cross {
     display: flex;

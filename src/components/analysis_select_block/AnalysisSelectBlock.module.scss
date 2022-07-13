@@ -19,9 +19,25 @@
   }
 
   &_search_input {
-    max-width: 750px;
+    max-width: 850px;
     margin: auto;
     margin-top: 45px;
+    img {
+      width: 22px;
+      height: 22px;
+
+      @include adaptive("xxsm"){
+        width: 18px;
+        height: 18px;
+      }
+    }
+    &_inner {
+      font-size: 22px;
+      border: 2px solid rgba(0, 0, 0, 0.23);
+      @include adaptive("xxsm"){
+        font-size: 18px;
+      }
+    }
   }
 
   &_category_slider {

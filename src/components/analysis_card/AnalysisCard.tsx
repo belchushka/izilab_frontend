@@ -32,6 +32,7 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
         if (cart.indexOf(data.id) !== -1) {
             dispatch(removeAnalysis(data.id))
         } else {
+            console.log(data);
             dispatch(addAnalysis(data.id))
         }
     }

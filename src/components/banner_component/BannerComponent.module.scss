@@ -85,7 +85,8 @@
     }
 
     &_buttons {
-      button {
+      a {
+        display: inline-block;
         &:nth-child(2){
           margin-left: 18px;
           @include adaptive("xxsm"){

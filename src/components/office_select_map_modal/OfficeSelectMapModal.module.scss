@@ -1,3 +1,5 @@
+@import "../../styles/mixin";
+
 .body {
   padding: 0 !important;
   max-width: 1000px;
@@ -7,6 +9,10 @@
   &_content {
     height: 50vh;
     position: relative;
+
+    @include adaptive("xsm"){
+      height: 100%;
+    }
 
     &_map {
       position: absolute;

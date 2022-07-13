@@ -1,4 +1,4 @@
-import React, {useCallback, useContext, useEffect, useMemo, useState} from 'react';
+import React, {useCallback, useContext, useEffect, useMemo, useRef, useState} from 'react';
 import s from "./CartBlock.module.scss"
 import ContainerComponent from "../container_component/ContainerComponent";
 import AnalysisCartCard from "../analysis_cart_card/AnalysisCartCard";
@@ -27,7 +27,7 @@ import {declOfNum} from "../../utils/decl_of_num";
 
 
 const CartBlock = () => {
-    const {nextStep, prevStep} = useContext(NextStepContext)
+    const {nextStep, prevStep, scrollTo} = useContext(NextStepContext)
     const [showCityModal, setShowCityModal] = useState(false)
     const [showOfficeModal, setShowOfficeModal] = useState(false)
     const city = useTypedSelector(state => state.city)
@@ -49,19 +49,24 @@ const CartBlock = () => {
     const semple_preparations = cart.semple_preparations
     const semple_preparation_price = cart.semple_preparation_price
     const not_performed_ids = cart.not_performed_ids
+    const inputsRef = useRef(null)
     const dispatch = useTypedDispatch()
     const allowNextStep = cart.can_continue
     const dateSelectOptions = useMemo(() => {
         if (selectedOffice) {
             const closed_at = selectedOffice.closed_at.map(el => moment.default(el.timestamp))
             const date_arr = []
+            const has_main = analysis.some(el => el.analysis_data.is_main_biomaterial)
             for (let i = 0; i < 30; i++) {
                 const day = moment.default()
                 day.add({days: i})
                 const dayNumber = day.isoWeekday()
-                const {from, to} = selectedOffice.schedule.find(el=> el.type == 'additional' && el.day==dayNumber)
-                const fromLocal = moment.default(from).add(selectedOffice.utc).format("HH:mm")
-                const toLocal = moment.default(to).add(selectedOffice.utc).format("HH:mm")
+                const {
+                    from,
+                    to
+                } = selectedOffice.schedule.find(el => (el.type == (has_main ? 'main' : 'additional')) && el.day == dayNumber)
+                const fromLocal = moment.utc(from).add(selectedOffice.utc, 'hour').format("HH:mm")
+                const toLocal = moment.utc(to).add(selectedOffice.utc, 'hour').format("HH:mm")
                 const mounth_name = day.lang("ru").format("D MMMM")
                 const day_name = day.lang("ru").format("dddd")
                 const value = `${mounth_name}, ${day_name.slice(0, 1).toUpperCase() + day_name.slice(1)}`
@@ -75,9 +80,9 @@ const CartBlock = () => {
             return date_arr
         }
         return []
-    }, [selectedOffice])
+    }, [selectedOffice, analysis])
     const officeSelectOptions = useMemo(() => {
-        return city.offices.map((el:any)=>{
+        return city.offices.map((el: any) => {
             return {
                 value: el.id,
                 label: el.address,
@@ -165,32 +170,33 @@ const CartBlock = () => {
                 {analysis.length > 0 ?
                     <ContainerComponent className={s.cart_wrapper_container}>
                         <div className={s.cart_header}>
-                            <h3 className={s.cart_header_title}>{analysis.length} {declOfNum(analysis.length, ['товар', 'товара', 'товаров'])} в корзине</h3>
+                            <h3 className={s.cart_header_title}>{analysis.length} {declOfNum(analysis.length, ['товар', 'товара', 'товаров'])} в
+                                корзине</h3>
                             <p className={s.cart_header_clear} onClick={clearCartClick}>очистить корзину</p>
                         </div>
                         <div className={s.cart_sections}>
                             <div className={`${s.cart_sections_section}`}>
                                 <div className={`${s.cart_sections_section_analysis_list} custom_scroll`}>
-                                    {analysis?.map((el: any) =>{
-                                        const analysis: any = check_card_type(el)
-                                        return <div key={el.id}
-                                                    className={`${el.only_in_complex_with_parent.length > 0 && s.analysis_wrapper}`}>
-                                            <AnalysisCartCard selectOffice={() => showOfficeModalCheck()}
-                                                              notPerformed={not_performed_ids.includes(el.id)}
-                                                              type={analysis.type}
-                                                              data={analysis.analysis}
-                                                              className={s.cart_sections_section_analysis}/>
-                                            {el.only_in_complex_with_parent?.map((child: any) => {
-                                                const analysis_child: any = check_card_type(child)
-                                                return <AnalysisCartCard selectOffice={() => showOfficeModalCheck()}
-                                                                         notPerformed={not_performed_ids.includes(el.id)}
-                                                                         showButton={false} key={child.id}
-                                                                         type={analysis_child.type}
-                                                                         data={analysis_child.analysis}
-                                                                         className={s.cart_sections_section_analysis}/>
-                                            })}
-                                        </div>
-                                    }
+                                    {analysis?.map((el: any) => {
+                                            const analysis: any = check_card_type(el)
+                                            return <div key={el.id}
+                                                        className={`${el.only_in_complex_with_parent.length > 0 && s.analysis_wrapper}`}>
+                                                <AnalysisCartCard selectOffice={() => showOfficeModalCheck()}
+                                                                  notPerformed={not_performed_ids.includes(el.id)}
+                                                                  type={analysis.type}
+                                                                  data={analysis.analysis}
+                                                                  className={s.cart_sections_section_analysis}/>
+                                                {el.only_in_complex_with_parent?.map((child: any) => {
+                                                    const analysis_child: any = check_card_type(child)
+                                                    return <AnalysisCartCard selectOffice={() => showOfficeModalCheck()}
+                                                                             notPerformed={not_performed_ids.includes(el.id)}
+                                                                             showButton={false} key={child.id}
+                                                                             type={analysis_child.type}
+                                                                             data={analysis_child.analysis}
+                                                                             className={s.cart_sections_section_analysis}/>
+                                                })}
+                                            </div>
+                                        }
                                     )}
                                     {semplings.map((el: any) => {
                                         return <SemplingCard key={el.id} title={"Взятие биоматериала"}
@@ -203,7 +209,7 @@ const CartBlock = () => {
                                     })}
                                 </div>
                             </div>
-                            <div className={s.cart_sections_section}>
+                            <div className={s.cart_sections_section} ref={inputsRef}>
                                 <div className={s.cart_sections_section_block}>
                                     {price_with_stock + sempling_price + semple_preparation_price >= 5000 ?
                                         <h5 className={s.cart_sections_section_block_title}>Выберите ваш подарок</h5>
@@ -241,7 +247,7 @@ const CartBlock = () => {
                                                       value={selectedOffice && {
                                                           label: selectedOffice.address,
                                                           value: selectedOffice.id,
-                                                          disabled:false
+                                                          disabled: false
                                                       }}
                                                       options={officeSelectOptions} className={s.custom_select}/>
                                         <div className={s.cart_select_office_btn} onClick={showOfficeModalCheck}>
@@ -283,10 +289,12 @@ const CartBlock = () => {
                                             <p>Взятие биоматериала ({semplings.length})</p>
                                             <p>{sempling_price} Р</p>
                                         </div>
-                                        <div className={s.order_details_list_inner}>
-                                            <p>Пробаподготовка ({semple_preparations.length})</p>
-                                            <p>{semple_preparation_price} Р</p>
-                                        </div>
+                                        {semple_preparations.length > 0 &&
+                                            <div className={s.order_details_list_inner}>
+                                                <p>Пробаподготовка ({semple_preparations.length})</p>
+                                                <p>{semple_preparation_price} Р</p>
+                                            </div>
+                                        }
                                         <div
                                             className={`${s.order_details_list_inner} ${s.order_details_list_inner_total}`}>
                                             <p>Сумма заказа</p>

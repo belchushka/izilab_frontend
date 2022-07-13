@@ -24,7 +24,6 @@ const Landing = () => {
                 <MobileMenu/>
             </MenuContext.Provider>
             <BannerComponent/>
-            <LandingSteps/>
             <OrderBlock/>
             <AdvantagesComponent/>
             <AboutComponent/>

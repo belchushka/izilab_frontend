@@ -113,6 +113,27 @@ button {
 
   border-radius: 7px;
   color: #FFFFFF;
+  margin: auto;
+}
+
+.ymaps-2-1-79-balloon{
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+.ymaps-2-1-79-balloon__layout{
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+.ymaps-2-1-79-balloon__content{
+  display: block !important;
+  border-radius: 8px !important;
+}
+
+.ymaps-2-1-79-balloon-content__footer {
+  display: flex !important;
+  justify-content: center !important;
 }
 
 .react-calendar__tile--now.react-calendar__month-view__days__day {
@@ -197,4 +218,22 @@ button {
 
   color: #423A3A;
   margin-bottom: 15px;
+}
+
+.floating_button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 900;
+
+  @include adaptive("xsm"){
+    bottom: 20px;
+    right: unset;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.floating_button_text {
+  font-size: 18px !important;
 }

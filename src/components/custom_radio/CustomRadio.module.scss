@@ -2,8 +2,8 @@
   display: none;
 
   &_checkmark {
-    width: 20px;
-    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
     border:1px solid rgba(68, 86, 102, 0.16);
     display: flex;
     transform: translateY(-1px);

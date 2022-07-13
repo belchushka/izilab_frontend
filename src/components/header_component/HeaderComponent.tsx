@@ -45,9 +45,12 @@ const HeaderComponent: React.FC = () => {
                                 <br/>
                                 <strong>с 7:00 до 22:00</strong>
                             </p>
-                            <CustomButton className={s.header_rightside_button} onClick={()=>navigation('order')} color={"pink"} type={"landing"}>
-                                <span>Записаться онлайн</span>
-                            </CustomButton>
+                            <a href="#order">
+                                <CustomButton className={s.header_rightside_button} onClick={()=>null} color={"pink"} type={"landing"}>
+                                    <span>Записаться онлайн</span>
+                                </CustomButton>
+                            </a>
+
 
                         </div>
                         <div onClick={()=>setShowMenu(true)} className={s.header_rightside_burger}>

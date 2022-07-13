@@ -41,7 +41,11 @@ const OfficeSelectMapModal: React.FC<IOfficeSelectMapModal> = ({hide, onSelect, 
                 <YMaps>
                     <div>
                         <Map className={s_upd.body_content_map} defaultState={{center: [55.78874, 49.12214], zoom: 12}}
-                             width={"100%"}>
+                             width={"100%"}
+                            options={{
+                                suppressMapOpenBlock: true
+                            }}
+                        >
                             <ZoomControl/>
                             <GeolocationControl/>
                             {city_offices?.map((el: any) => {

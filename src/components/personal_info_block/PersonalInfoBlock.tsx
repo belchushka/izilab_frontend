@@ -126,18 +126,17 @@ const PersonalInfoBlock = () => {
                              label={"Мужчина"} name={"sex"}/>
             </div>
             <div className={s.input_row}>
-                <CustomInput error={surnameError} setError={setSurnameError} value={surname} placeholder={"Фамилия"}
+                <CustomInput error={surnameError} setError={setSurnameError} value={surname} placeholder={"Фамилия *"}
                              onInput={setSurname} className={s.row_input}/>
-                <CustomInput error={nameError} setError={setNameError} value={name} placeholder={"Имя"}
+                <CustomInput error={nameError} setError={setNameError} value={name} placeholder={"Имя *"}
                              onInput={setName} className={s.row_input}/>
                 <CustomInput error={secondnameError} setError={setSecondNameError} value={secondname}
-                             placeholder={"Отчество"} onInput={setSecondName} className={s.row_input}/>
+                             placeholder={"Отчество *"} onInput={setSecondName} className={s.row_input}/>
 
-                <input type={'date'}/>
             </div>
             <div className="">
                 <CalendarInput calendarDate={currentDate} value={birthday} onSelect={onCalendarSelect}
-                               error={birthdayError} setError={setBirthdayError} placeholder={"Дата рождения"}
+                               error={birthdayError} setError={setBirthdayError} placeholder={"Дата рождения *"}
                                mask={"99.99.9999"} onInput={setBirthday} containerClassName={s.expanded_input}/>
                 {showParentInfo && <div>
                     <div className={s.alert}>
@@ -151,22 +150,22 @@ const PersonalInfoBlock = () => {
                     </div>
                     <div className={s.input_row}>
                         <CustomInput error={parentSernameError} setError={setParentSernameError} value={parentSername}
-                                     placeholder={"Фамилия"} onInput={setParentSername} className={s.row_input}/>
+                                     placeholder={"Фамилия *"} onInput={setParentSername} className={s.row_input}/>
                         <CustomInput error={parentnameError} setError={setParentNameError} value={parentname}
-                                     placeholder={"Имя"} onInput={setParentName} className={s.row_input}/>
+                                     placeholder={"Имя *"} onInput={setParentName} className={s.row_input}/>
                         <CustomInput error={parentSecondNameError} setError={setParentSecondNameError}
-                                     value={parentSecondName} placeholder={"Отчество"} onInput={setParentSecondName}
+                                     value={parentSecondName} placeholder={"Отчество *"} onInput={setParentSecondName}
                                      className={s.row_input}/>
                     </div>
                     <CalendarInput calendarDate={currentParentDate} value={parentBirthday}
                                    onSelect={onCalendarParentSelect} error={parentBirthdayError}
-                                   setError={setParentBirthdayError} placeholder={"Дата рождения"} mask={"99.99.9999"}
+                                   setError={setParentBirthdayError} placeholder={"Дата рождения *"} mask={"99.99.9999"}
                                    onInput={setParentBirthday} containerClassName={s.expanded_input}/>
 
                 </div>}
-                <CustomInput value={phone} error={phoneError} setError={setPhoneError} placeholder={"Номер телефона"}
+                <CustomInput value={phone} error={phoneError} setError={setPhoneError} placeholder={"Номер телефона *"}
                              mask={"+7(999)999-99-99"} onInput={setPhone} className={s.expanded_input}/>
-                <CustomInput value={email} error={emailError} setError={setEmailError} placeholder={"E-mail"}
+                <CustomInput value={email} error={emailError} setError={setEmailError} placeholder={"E-mail *"}
                              onInput={setEmail} className={s.expanded_input}/>
             </div>
 

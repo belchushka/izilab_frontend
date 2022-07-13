@@ -20,12 +20,16 @@ const BannerComponent = () => {
                         Выбирайте любой!
                     </p>
                     <div className={s.banner_container_leftside_buttons}>
+                        <a href="#order">
                         <CustomButton type={"landing"} color={"pink"} onClick={()=>null}>
                             <span>Записаться онлайн</span>
                         </CustomButton>
+                        </a>
+                        <a href="https://izilab.ru/v/index.html">
                         <CustomButton type={"landing"} color={"blue"} onClick={()=>null}>
                             <span>Выезд на дом</span>
                         </CustomButton>
+                        </a>
                     </div>
                 </div>
                 <div className={s.banner_container_rightside}>

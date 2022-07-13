@@ -1,16 +1,18 @@
 import {AppThunkAction} from "../types";
 import {Dispatch} from "redux";
 import {$host} from "../../http";
-import {setAnalysisList} from "../reducers/analysisSlice";
+import {addAnalysisToList, setAnalysisList, setAnalysisPages} from "../reducers/analysisSlice";
 
-export const getCategoryAnalysis: AppThunkAction = (params) => async (dispatch: Dispatch) => {
+export const loadMore: AppThunkAction = (category, page) => async (dispatch: Dispatch) => {
     try {
         const data = await $host.get("/analysis/get_from_category", {
             params: {
-                category: params
+                category: category,
+                page: page
             }
         })
-        dispatch(setAnalysisList(data.data))
+        dispatch(addAnalysisToList(data.data.analysis))
+        dispatch(setAnalysisPages(data.data.pages))
     } catch (e: any) {
         if (e.response.status == 404) {
             dispatch(setAnalysisList([]))
@@ -20,14 +22,50 @@ export const getCategoryAnalysis: AppThunkAction = (params) => async (dispatch: 
     }
 }
 
-export const searchAnalysis: AppThunkAction = (query) => async (dispatch: Dispatch) => {
+export const getCategoryAnalysis: AppThunkAction = (category) => async (dispatch: Dispatch) => {
+    try {
+        const data = await $host.get("/analysis/get_from_category", {
+            params: {
+                category: category,
+                page:0
+            }
+        })
+        dispatch(setAnalysisList(data.data.analysis))
+        dispatch(setAnalysisPages(data.data.pages))
+    } catch (e: any) {
+        if (e.response.status == 404) {
+            dispatch(setAnalysisList([]))
+        } else {
+            alert("Технические шоколадки ")
+        }
+    }
+}
+
+export const searchAnalysis: AppThunkAction = (query, page) => async (dispatch: Dispatch) => {
     try {
         const data = await $host.get("/analysis/get_from_query", {
             params: {
-                query
+                query,
+                page
             }
         })
-        dispatch(setAnalysisList(data.data))
+        dispatch(setAnalysisList(data.data.analysis))
+        dispatch(setAnalysisPages(data.data.pages))
+    } catch (e: any) {
+        dispatch(setAnalysisList([]))
+    }
+}
+
+export const loadMoreSearch: AppThunkAction = (query, page) => async (dispatch: Dispatch) => {
+    try {
+        const data = await $host.get("/analysis/get_from_query", {
+            params: {
+                query,
+                page
+            }
+        })
+        dispatch(addAnalysisToList(data.data.analysis))
+        dispatch(setAnalysisPages(data.data.pages))
     } catch (e: any) {
         dispatch(setAnalysisList([]))
     }

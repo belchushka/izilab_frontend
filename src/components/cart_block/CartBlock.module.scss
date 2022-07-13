@@ -82,7 +82,6 @@
 
         @include adaptive("xsm") {
           position: static;
-          height: 60vh;
         }
       }
     }
@@ -113,6 +112,9 @@
     }
 
     &_block {
+      @include adaptive("xsm"){
+        margin-top: 20px;
+      }
       &_title {
         font-family: 'Arial';
         font-style: normal;
