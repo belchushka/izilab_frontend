@@ -3,33 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1c9a2bda-6b36-44fd-b780-eeee424bd6ee" name="Changes" comment="100% perfection">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_card/AnalysisCard.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/analysis_select_block/AnalysisSelectBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/banner_component/BannerComponent.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/banner_component/BannerComponent.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/banner_component/BannerComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/banner_component/BannerComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/block_header/BlockHeader.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/block_header/BlockHeader.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/cart_block/CartBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_input/CustomInput.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/custom_radio/CustomRadio.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/gift_card/GiftCard.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/gift_card/GiftCard.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/header_component/HeaderComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/modal/Modal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/modal/Modal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/office_select_map_modal/OfficeSelectMapModal.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order_block/OrderBlock.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order_block/OrderBlock.module.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/order_block/OrderBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/personal_info_block/PersonalInfoBlock.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contexts/NextStepContext.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/contexts/NextStepContext.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/screens/Landing.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/screens/Landing.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/analysisActions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/actions/analysisActions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/analysisSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/analysisSlice.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,7 +141,7 @@
       <workItem from="1657727868185" duration="1771000" />
       <workItem from="1657729814543" duration="147000" />
       <workItem from="1657732880713" duration="61000" />
-      <workItem from="1657733185015" duration="3545000" />
+      <workItem from="1657733185015" duration="5149000" />
     </task>
     <task id="LOCAL-00001" summary="backup">
       <created>1656629282686</created>
@@ -232,7 +206,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657631827919</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="100% perfection">
+      <created>1657738489430</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1657738489430</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

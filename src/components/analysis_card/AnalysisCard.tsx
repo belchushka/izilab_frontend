@@ -19,13 +19,19 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
     const dispatch = useTypedDispatch()
     const stock_endtime = useMemo(() => {
         if (type !== "stock") return 0
-        const start = moment.default(new Date())
+        const start = moment.default(new Date()).utc(true)
         const end = moment.default(data.analysis_data.stock_until)
         const duration = moment.duration(end.diff(start))
         const days = duration.asDays();
         const hours = duration.hours();
         const minutes = duration.minutes();
-        return `${days.toFixed()} ${declOfNum(days.toFixed(), ['день', 'дня', 'дней'])} ${hours.toFixed()} ${declOfNum(hours.toFixed(), ['час', 'часа', 'часов'])}`
+        let str = `${days.toFixed()} ${declOfNum(days.toFixed(), ['день', 'дня', 'дней'])} ${hours.toFixed()} ${declOfNum(hours.toFixed(), ['час', 'часа', 'часов'])}`
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        if (days.toFixed() == 0) {
+            str += ` ${minutes.toFixed()} ${declOfNum(days.toFixed(), ['минута', 'минуты', 'минут'])}`
+        }
+        return str
     }, [])
     const onAddClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation()
@@ -55,7 +61,7 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
                     </div>
                     <div className={s.left_side}>
                         <div className={s.left_side_text}>
-                                <p>{data.analysis_data.price}P</p>
+                            <p>{data.analysis_data.price}P</p>
                             <span>до {data.analysis_data.execution_period} {declOfNum(data.analysis_data.execution_period, ['дня', 'дней', 'дней'])}</span>
                         </div>
                         <button onClickCapture={onAddClickHandler}
@@ -72,7 +78,8 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
                                     <button onClickCapture={onAddClickHandler}
                                             className={`${s.left_side_add_btn} ${cart.indexOf(data.id) !== -1 && s.left_side_add_btn_active}`}></button>
 
-                                    <p><span>{data.analysis_data.prev_stock_price}</span> {data.analysis_data.price}P </p>
+                                    <p><span>{data.analysis_data.prev_stock_price}</span> {data.analysis_data.price}P
+                                    </p>
 
                                 </div>
                                 <span>до конца акции осталось {stock_endtime}</span>
