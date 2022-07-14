@@ -22,6 +22,7 @@ import check_card_type from "../../utils/check_card_type";
 const AnalysisSelectBlock = () => {
     const [selectedCategory, setSelectedCategory] = useState(0)
     const analysisPages = useTypedSelector(state => state.analysis.pages)
+    const totalFound = useTypedSelector(state=> state.analysis.total)
     const [page, setPage] = useState(0)
     const [showSupport, setShowSupport] = useState(false)
     const [showSlider, setShowSlider] = useState(true)
@@ -94,9 +95,12 @@ const AnalysisSelectBlock = () => {
                                }}
                                placeholder={"Введите название анализа"}/>
                 </ContainerComponent>
-                <ContainerComponent className={s.block_wrapper_category_slider}>
-                    {showSlider && <CategorySelectSlider categories={categories} onSelectCategory={onSelectCategory}
-                                                         selectedCategory={searchInputDebounce.trim() == "" ? selectedCategory : null}/>}
+                <ContainerComponent className={`${s.block_wrapper_category_slider} ${!showSlider && s.block_wrapper_category_slider_hidden}`}>
+                    {showSlider ? <CategorySelectSlider categories={categories} onSelectCategory={onSelectCategory}
+                                                         selectedCategory={searchInputDebounce.trim() == "" ? selectedCategory : null}/>
+                        :
+                        <p className={s.totalFound}>Всего найдено: {totalFound}</p>
+                    }
 
                 </ContainerComponent>
 
@@ -138,7 +142,10 @@ const AnalysisSelectBlock = () => {
                         </>
                         :
                         <EmptyBlock subtitle={"Пожалуйста, повторите поиск \n" +
-                            "с иным запросом."} img={EmptySearch} onButtonClick={() => setSearchInputValue("")}/>
+                            "с иным запросом."} img={EmptySearch} onButtonClick={() => {
+                                setSelectedCategory(0)
+                                setSearchInputValue("")
+                        }}/>
                     }
 
                 </ContainerComponent>

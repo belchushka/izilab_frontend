@@ -1,7 +1,7 @@
 import {AppThunkAction} from "../types";
 import {Dispatch} from "redux";
 import {$host} from "../../http";
-import {addAnalysisToList, setAnalysisList, setAnalysisPages} from "../reducers/analysisSlice";
+import {addAnalysisToList, setAnalysisList, setAnalysisPages, setAnalysisTotal} from "../reducers/analysisSlice";
 
 export const loadMore: AppThunkAction = (category, page) => async (dispatch: Dispatch) => {
     try {
@@ -51,6 +51,7 @@ export const searchAnalysis: AppThunkAction = (query, page) => async (dispatch: 
         })
         dispatch(setAnalysisList(data.data.analysis))
         dispatch(setAnalysisPages(data.data.pages))
+        dispatch(setAnalysisTotal(data.data.total))
     } catch (e: any) {
         dispatch(setAnalysisList([]))
     }

@@ -60,14 +60,17 @@ const userSlice = createSlice({
             const new_cart = state.cart.ids
             new_cart.push(action.payload)
             state.cart.ids = Array.from(new Set(new_cart))
+            localStorage.setItem('user_cart', JSON.stringify(new_cart))
         },
         clearCart(state, action) {
             return initialState
         },
         removeAnalysis(state, action) {
-            state.cart.ids = state.cart.ids.filter((el: any) => {
+            const new_cart = state.cart.ids.filter((el: any) => {
                 return el !== action.payload
             })
+            state.cart.ids = new_cart
+            localStorage.setItem('user_cart', JSON.stringify(new_cart))
         },
         setCartAnalysis(state, action) {
             state.cart.analysis = action.payload
@@ -81,6 +84,9 @@ const userSlice = createSlice({
             state.cart.gifts = state.cart.gifts.filter((el: any) => {
                 return el !== action.payload
             })
+        },
+        setCartGifts(state,action){
+            state.cart.gifts = action.payload
         },
         setCartPrice(state, action) {
             state.cart.price = action.payload
@@ -112,7 +118,8 @@ export const {
     setCartDate,
     setCart,
     clearCart,
-    setUserInfo
+    setUserInfo,
+    setCartGifts
 } = userSlice.actions
 
 export const cartTotalPrice = (state: AppState) => {

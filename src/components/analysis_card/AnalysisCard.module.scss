@@ -5,6 +5,7 @@
   display: flex;
   position: relative;
   cursor: pointer;
+  overflow: hidden;
 
   &_stock {
     *, *:before, *:after{
@@ -139,4 +140,15 @@
       }
     }
   }
+}
+
+.add_transition {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.45);
+  top: 0;
+  left: 0;
+  z-index: 100;
+  backdrop-filter: blur(1px);
 }

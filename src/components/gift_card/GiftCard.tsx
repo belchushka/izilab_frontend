@@ -26,7 +26,7 @@ const GiftCard: React.FC<IGiftCard> = ({data, disabled=false}) => {
             <div className={s.gift_body_content}>
                 <p>{data.analysis_data.name}</p>
                 <CustomButton className={s.gift_body_content_button} type={"cart"} color={"pink"} onClick={clickHandler}>
-                    <p>{in_cart ? "В корзине":"Выбрать"}</p>
+                    <p>{in_cart ? "Удалить":"Выбрать"}</p>
                 </CustomButton>
             </div>
 

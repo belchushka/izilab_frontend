@@ -1,10 +1,11 @@
-import React, {MouseEventHandler, useEffect, useMemo, useState} from 'react';
+import React, {MouseEventHandler, useMemo, useState} from 'react';
 import s from "./AnalysisCard.module.scss"
 import * as moment from "moment";
 import AnalysisInfoModal from "../analysis_info_modal/AnalysisInfoModal";
 import {useTypedDispatch, useTypedSelector} from "../../store/hooks";
 import {addAnalysis, removeAnalysis} from "../../store/reducers/userSlice";
 import {declOfNum} from "../../utils/decl_of_num";
+import {config, useSpring, animated} from "react-spring";
 
 
 interface IAnalysisCard {
@@ -15,11 +16,13 @@ interface IAnalysisCard {
 
 const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default"}) => {
     const [showModal, setShowModal] = useState(false)
+    const [flip, set] = useState(false)
+
     const cart = useTypedSelector(state => state.user.cart.ids)
     const dispatch = useTypedDispatch()
     const stock_endtime = useMemo(() => {
         if (type !== "stock") return 0
-        const start = moment.default(new Date()).utc(true)
+        const start = moment.default().utc()
         const end = moment.default(data.analysis_data.stock_until)
         const duration = moment.duration(end.diff(start))
         const days = duration.asDays();
@@ -33,12 +36,21 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
         }
         return str
     }, [])
+    // const transitionStyles = useSpring({
+    //     to: { visibility: 'visible' },
+    //     from: { visibility: 'hidden' },
+    //     reset: true,
+    //     reverse: flip,
+    //     delay: 0,
+    //     config: config.molasses,
+    //     onRest: () => set(!flip),
+    // })
     const onAddClickHandler: MouseEventHandler<HTMLButtonElement> = (event) => {
         event.stopPropagation()
         if (cart.indexOf(data.id) !== -1) {
             dispatch(removeAnalysis(data.id))
         } else {
-            console.log(data);
+
             dispatch(addAnalysis(data.id))
         }
     }
@@ -54,6 +66,9 @@ const AnalysisCard: React.FC<IAnalysisCard> = ({className, data, type = "default
             }} className={`${className} ${s.card} ${type == "stock" && s.card_stock}`} style={{
                 background: type == "stock" ? `linear-gradient(90deg, #${data.analysis_data.gradient_1} 0%, #${data.analysis_data.gradient_2} 100%)` : "#E8F4FF"
             }}>
+                {/*<div className={s.add_transition}>*/}
+                {/*    <img src="" alt=""/>*/}
+                {/*</div>*/}
                 {type == "default" && <>
                     <div className={s.right_side}>
                         <h6 className={s.right_side_title}>{data.analysis_data.name}</h6>

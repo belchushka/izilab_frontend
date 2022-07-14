@@ -78,10 +78,15 @@
         width: 100%;
         height: 100%;
         overflow-y: auto;
+        -ms-overflow-y: scroll;
+        scrollbar-width: thin;
+        scrollbar-color: #AED9FF #AED9FF;
         padding-right: 15px;
+        z-index: 9000;
 
         @include adaptive("xsm") {
           position: static;
+          padding-right: 0 !important;
         }
       }
     }

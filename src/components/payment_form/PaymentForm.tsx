@@ -1,6 +1,5 @@
 import React, {useEffect, useRef} from 'react';
 import s from "../payment_form/PaymentForm.module.scss"
-import CustomButton from "../custom_button/CustomButton";
 
 interface IPaymentForm {
     confirmation_token: string | null,

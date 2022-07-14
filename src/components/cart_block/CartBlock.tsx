@@ -27,7 +27,7 @@ import {declOfNum} from "../../utils/decl_of_num";
 
 
 const CartBlock = () => {
-    const {nextStep, prevStep, scrollTo} = useContext(NextStepContext)
+    const {nextStep, prevStep} = useContext(NextStepContext)
     const [showCityModal, setShowCityModal] = useState(false)
     const [showOfficeModal, setShowOfficeModal] = useState(false)
     const city = useTypedSelector(state => state.city)
@@ -73,8 +73,9 @@ const CartBlock = () => {
                 const is_disabled = closed_at.some(el => day.isSame(el, 'day'))
                 date_arr.push({
                     value: day.format("DD/MM/YYYY"),
-                    label: `${value} (Режим работы: с ${fromLocal} до ${toLocal})`,
-                    disabled: is_disabled
+                    label: `${value} (с ${fromLocal} до ${toLocal})`,
+                    disabled: is_disabled,
+                    sublable: ' Прием в порядке живой очереди'
                 })
             }
             return date_arr
@@ -86,7 +87,8 @@ const CartBlock = () => {
             return {
                 value: el.id,
                 label: el.address,
-                disabled: false
+                disabled: false,
+                sublable:""
             }
         })
     }, [city])

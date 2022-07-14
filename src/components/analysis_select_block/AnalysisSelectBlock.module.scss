@@ -46,6 +46,10 @@
       width: 100%;
       max-width: 100%;
     }
+
+    &_hidden {
+      margin-top: 20px;
+    }
   }
 
   &_analysis_list {
@@ -93,3 +97,14 @@
   }
 }
 
+.totalFound {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 22px;
+  /* identical to box height, or 147% */
+  letter-spacing: 0.12px;
+
+  color: #423A3A;
+  text-align: center;
+}

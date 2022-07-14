@@ -70,6 +70,14 @@ const PaymentFormBlock = () => {
         }, 5000)
     }
 
+    useEffect(()=>{
+        return ()=>{
+            if (checkInterval.current){
+                clearInterval(checkInterval.current)
+            }
+        }
+    },[])
+
     const succesHandler = () => {
         dispatch(clearCart(''))
         setPaymentStatus(null)

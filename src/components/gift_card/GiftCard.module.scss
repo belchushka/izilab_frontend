@@ -2,6 +2,10 @@
 
 .gift_body {
   width: calc(100% / 3 - 20px);
+
+  @include adaptive("xxsm"){
+    width: 100% !important;
+  }
   background: #FF6298;
   border-radius: 7px;
   cursor: pointer;

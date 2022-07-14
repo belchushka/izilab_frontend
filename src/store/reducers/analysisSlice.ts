@@ -4,7 +4,8 @@ interface IInitialState {
     analysis_list: any[],
     analysis: any,
     gifts: any,
-    pages:number
+    pages:number,
+    total: number
 }
 
 const initialState: IInitialState = {
@@ -12,6 +13,7 @@ const initialState: IInitialState = {
     analysis: {},
     gifts: [],
     pages: 0,
+    total: 0,
 }
 
 const analysisSlice = createSlice({
@@ -33,8 +35,11 @@ const analysisSlice = createSlice({
         setAnalysisPages(state, action) {
             state.pages = action.payload
         },
+        setAnalysisTotal(state, action) {
+            state.total = action.payload
+        },
     }
 })
 
-export const {setAnalysisList, setAnalysis, setAnalysisGifts, addAnalysisToList, setAnalysisPages} = analysisSlice.actions
+export const {setAnalysisList, setAnalysis, setAnalysisGifts, addAnalysisToList, setAnalysisPages, setAnalysisTotal} = analysisSlice.actions
 export default analysisSlice.reducer

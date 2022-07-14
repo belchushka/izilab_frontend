@@ -52,13 +52,16 @@ const PersonalInfoBlock = () => {
 
     }, [birthday])
     const checkNextStep = useCallback((name, surname, secondname, birthday, phone, email, isMale, accept, parentName, parentSurname, parentSecondName, parentBirthday, showParentInfo) => {
-        if (name.trim() == "" || surname.trim() == "" || secondname.trim() == "" || birthday.trim() == "" || phone.trim() == "" || email.trim() == "" || isMale == null || accept == null || (showParentInfo && (parentName.trim() == "" || parentSurname.trim() == "" || parentSecondName.trim() == "" || parentBirthday.trim() == ""))) {
+        if (name.trim() == "" || surname.trim() == "" || secondname.trim() == "" || birthday.trim() == "" || phone.trim() == "" || email.trim() == "" || !email.trim().match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/) || isMale == null || accept == null || (showParentInfo && (parentName.trim() == "" || parentSurname.trim() == "" || parentSecondName.trim() == "" || parentBirthday.trim() == ""))) {
             name.trim() == "" && setNameError(true)
             surname.trim() == "" && setSurnameError(true)
             secondname.trim() == "" && setSecondNameError(true)
             birthday.trim().length < 10 && setBirthdayError(true)
             phone.trim() == "" && setPhoneError(true)
             email.trim() == "" && setEmailError(true)
+            if (!email.trim().match(/^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/)){
+                setEmailError(true)
+            }
             accept == null && setAcceptError(true)
             isMale == null && setIsMaleError(true)
             parentName.trim() == "" && setParentNameError(true)

@@ -2,7 +2,7 @@ import {AppDispatch, AppThunkAction} from "../types";
 import {$host} from "../../http";
 import {
     clearCart,
-    setCart,
+    setCart, setCartGifts,
 } from "../reducers/userSlice";
 import {setAnalysisGifts} from "../reducers/analysisSlice";
 
@@ -62,6 +62,9 @@ export const countCartPrice: AppThunkAction = (cart, officeId, date) => async (d
 
             dispatch(setCart(new_cart))
             dispatch(setAnalysisGifts( data.gifts))
+            if (data.sempling_price + data.price_with_stock + data.semple_preparation_price){
+                dispatch(setCartGifts([]))
+            }
             // dispatch(setCartPrice(data.total_price))
             // if (data.gifts) {
             //     dispatch(setAnalysisGifts(data.gifts))
