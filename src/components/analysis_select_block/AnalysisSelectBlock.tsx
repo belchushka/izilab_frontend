@@ -61,9 +61,12 @@ const AnalysisSelectBlock = () => {
 
 
     useEffect(() => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        dispatch(countCartPriceWithoutData(cart_ids))
+
+        if (cart_ids.length!==0){
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
+            dispatch(countCartPriceWithoutData(cart_ids))
+        }
     }, [cart_ids])
 
     useEffect(() => {

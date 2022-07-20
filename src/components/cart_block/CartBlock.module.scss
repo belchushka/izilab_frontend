@@ -82,7 +82,6 @@
         scrollbar-width: thin;
         scrollbar-color: #AED9FF #AED9FF;
         padding-right: 15px;
-        z-index: 9000;
 
         @include adaptive("xsm") {
           position: static;

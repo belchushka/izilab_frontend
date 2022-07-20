@@ -88,7 +88,7 @@ const CartBlock = () => {
                 value: el.id,
                 label: el.address,
                 disabled: false,
-                sublable:""
+                sublable: ' Прием в порядке живой очереди'
             }
         })
     }, [city])
@@ -156,7 +156,6 @@ const CartBlock = () => {
     const selectOffice = useCallback((val) => {
         dispatch(setCartOfficeId(val.value))
         dispatch(setCartDate(null))
-
     }, [])
 
     const clearCartClick = useCallback(() => {

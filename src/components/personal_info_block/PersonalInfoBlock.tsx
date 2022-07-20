@@ -20,7 +20,7 @@ const PersonalInfoBlock = () => {
     const [secondname, setSecondName] = useState("Haha")
     const [birthday, setBirthday] = useState("")
     const [phone, setPhone] = useState("")
-    const [email, setEmail] = useState("savva.shulgin47228@outlook.com")
+    const [email, setEmail] = useState("")
     const [parentname, setParentName] = useState("")
     const [parentSername, setParentSername] = useState("")
     const [parentSecondName, setParentSecondName] = useState("")

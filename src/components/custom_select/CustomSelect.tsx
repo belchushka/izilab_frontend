@@ -88,7 +88,10 @@ const CustomSelect: React.FC<ICustomSelect> = ({className, options, onSelect, on
             isOptionDisabled={(option) => option.disabled}
             formatOptionLabel={(option, { context })=>{
                 if (context=="value"){
-                    return option.label + option.sublable
+                    if (option.sublable){
+                        return option.label + option.sublable
+                    }
+                    return option.label
                 }
                 return option.label
             }}

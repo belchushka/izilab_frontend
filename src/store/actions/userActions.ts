@@ -62,7 +62,7 @@ export const countCartPrice: AppThunkAction = (cart, officeId, date) => async (d
 
             dispatch(setCart(new_cart))
             dispatch(setAnalysisGifts( data.gifts))
-            if (data.sempling_price + data.price_with_stock + data.semple_preparation_price){
+            if (data.sempling_price + data.price_with_stock + data.semple_preparation_price < 5000){
                 dispatch(setCartGifts([]))
             }
             // dispatch(setCartPrice(data.total_price))
